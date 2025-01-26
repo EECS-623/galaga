@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://6ldh7nv2kvfj"]
+[gd_scene load_steps=4 format=3 uid="uid://6ldh7nv2kvfj"]
 
 [ext_resource type="PackedScene" uid="uid://dvshqx1afu2e" path="res://player.tscn" id="1_js0dy"]
 [ext_resource type="Script" path="res://main.gd" id="1_ojom0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cvs8d"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_ojom0")
@@ -9,3 +11,11 @@ script = ExtResource("1_ojom0")
 [node name="Game" type="Node2D" parent="."]
 
 [node name="Player" parent="Game" instance=ExtResource("1_js0dy")]
+
+[node name="PirateShip" type="Area2D" parent="Game"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Game/PirateShip"]
+position = Vector2(1113, 100)
+shape = SubResource("CircleShape2D_cvs8d")
+
+[node name="Sprite2D" type="Sprite2D" parent="Game/PirateShip"]
