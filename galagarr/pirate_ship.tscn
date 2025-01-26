@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://1shmaegf7hpi"]
+
+[ext_resource type="Script" path="res://scripts/pirate_ship.gd" id="1_b5kj2"]
+[ext_resource type="Texture2D" uid="uid://bkwypiromucbq" path="res://art/pirateship.png" id="1_fq6cu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pprvu"]
+size = Vector2(22, 60)
+
+[node name="PirateShip" type="RigidBody2D"]
+script = ExtResource("1_b5kj2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1004, 216)
+scale = Vector2(0.103516, 0.1)
+texture = ExtResource("1_fq6cu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1004, 216)
+shape = SubResource("RectangleShape2D_pprvu")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
