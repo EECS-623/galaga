@@ -20,7 +20,7 @@ func _ready():
 			print("Error: Texture for animation 'ship' not found. Perhaps, you renamed the ship animation sprite")
 	else:
 		print("Error: AnimatedSprite2D or sprite_frames is not set up correctly.")
-
+	
 	#hide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

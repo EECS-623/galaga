@@ -2,32 +2,20 @@
 
 [ext_resource type="PackedScene" uid="uid://dvshqx1afu2e" path="res://player.tscn" id="1_js0dy"]
 [ext_resource type="Script" path="res://main.gd" id="1_ojom0"]
+[ext_resource type="Script" path="res://scripts/game.gd" id="3_g45jv"]
 [ext_resource type="PackedScene" uid="uid://1shmaegf7hpi" path="res://pirate_ship.tscn" id="3_s7sji"]
-
-[sub_resource type="Curve2D" id="Curve2D_k6nx1"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 64, 128, 0, 0, 0, 0, 1216, 120, 0, 0, 0, 0, 1216, 320, 0, 0, 0, 0, 64, 320, 0, 0, 0, 0, 64, 128)
-}
-point_count = 5
 
 [node name="Main" type="Node"]
 script = ExtResource("1_ojom0")
-pirate_scene = ExtResource("3_s7sji")
+
+[node name="MobTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
 
 [node name="Game" type="Node2D" parent="."]
+script = ExtResource("3_g45jv")
+pirate_ship = ExtResource("3_s7sji")
 
 [node name="Player" parent="Game" instance=ExtResource("1_js0dy")]
 
-[node name="PirateShip" parent="Game" instance=ExtResource("3_s7sji")]
-position = Vector2(154, -107)
-gravity_scale = 0.0
-
-[node name="MobTimer" type="Timer" parent="."]
-wait_time = 0.5
-
-[node name="MobPath" type="Path2D" parent="."]
-curve = SubResource("Curve2D_k6nx1")
-
-[node name="MobSpawnLocations" type="PathFollow2D" parent="MobPath"]
-position = Vector2(64, 128)
-rotation = -0.00694433
+[connection signal="timeout" from="MobTimer" to="Game" method="_on_mob_timer_timeout"]
