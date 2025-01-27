@@ -12,6 +12,7 @@ point_count = 5
 
 [node name="Main" type="Node"]
 script = ExtResource("1_ojom0")
+pirate_scene = ExtResource("3_s7sji")
 
 [node name="Game" type="Node2D" parent="."]
 
@@ -19,6 +20,7 @@ script = ExtResource("1_ojom0")
 
 [node name="PirateShip" parent="Game" instance=ExtResource("3_s7sji")]
 position = Vector2(154, -107)
+gravity_scale = 0.0
 
 [node name="MobTimer" type="Timer" parent="."]
 wait_time = 0.5
