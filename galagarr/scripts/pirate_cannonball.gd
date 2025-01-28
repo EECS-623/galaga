@@ -1,20 +1,32 @@
 extends Area2D
 var speed = 400
+var player_position
+var direction
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
+	_direction()
+	set_monitoring(true)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	_move(delta)
 
+# obtains direction of player and orientates ball towards it
 func _direction():
-	pass
+	var player = get_node("../../Player")
+	
+	player_position = player.global_position
+	
+	look_at(player_position)
+	
+	direction = (player_position - global_position).normalized()
 
-# On body entered lose life and remove projectile
-func _on_body_entered(body: Node2D) -> void:
-	if body.name == "Player":
-		# Player lose life
-		queue_free()
+# moves towards saved player position
+func _move(delta: float):
+	
+	global_position += direction * speed * delta
+
+# On shape entered lose life and remove projectile
+func _on_area_shape_entered(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int) -> void:
+	queue_free()

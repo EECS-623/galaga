@@ -9,7 +9,7 @@
 script = ExtResource("1_ojom0")
 
 [node name="MobTimer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 3.0
 autostart = true
 
 [node name="Game" type="Node2D" parent="."]
