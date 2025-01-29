@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dle8ke8aqnb8r"]
+
+[ext_resource type="Script" path="res://scripts/pirate_path.gd" id="1_tacqc"]
+
+[sub_resource type="Curve2D" id="Curve2D_obcvb"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 192, 128, 0, 0, 0, 0, 192, 384, 0, 0, 0, 0, 1088, 384, 0, 0, 0, 0, 1088, 128, 0, 0, 0, 0, 192, 128)
+}
+point_count = 5
+
+[node name="PiratePath" type="Node2D"]
+script = ExtResource("1_tacqc")
+
+[node name="Path1" type="Path2D" parent="."]
+curve = SubResource("Curve2D_obcvb")

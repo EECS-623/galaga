@@ -2,6 +2,7 @@ extends Node
 signal hit
 var screen_size
 var time = 0
+var speed = 100
 @export var projectile: PackedScene
 @export var cannon_ball: PackedScene
 
@@ -12,12 +13,14 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	_move(delta)
 
 # Called when a cannon_ball hits the pirateship
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == cannon_ball.name:
 		print("Collided with: ", body.name)
+		var path = get_parent()
+		path.queue_free()
 		queue_free()
 
 func _shoot_projectile():
@@ -34,6 +37,9 @@ func _on_projectile_timer_timeout() -> void:
 	
 	_shoot_projectile()
 
+func _move(delta: float):
+	var path = get_parent()
+	path.progress += 100 * delta
 
 #func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	#queue_free()
