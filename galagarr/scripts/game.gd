@@ -14,12 +14,24 @@ func _process(delta: float) -> void:
 func _on_mob_timer_timeout() -> void:
 	var pirate = pirate_ship.instantiate()
 	
-	#var pirate_ship_spawn_location = $/MobPath/MobSpawnLocatio
-	#pirate_ship_spawn_location.progress_ratio = randf()
+	var path_follow = PathFollow2D.new()
 	
-	#pirate.position = pirate_ship_spawn_location.position
+	var pirate_ship_path = $PiratePath/Path1
 	
-	pirate.global_position = Vector2(randf_range(50.0, 1150.0), 120.0)
+	pirate_ship_path.add_child(path_follow)
 	
-	add_child(pirate)
+	path_follow.position = pirate_ship_path.get_position()
+	
+	path_follow.progress_ratio = randf()
+	
+	print(path_follow.progress)
+	print(path_follow.position)
+	print(path_follow.global_position)
+	
+	#pirate = path_follow.position
+	
+	#pirate.global_position = 
+	#Vector2(randf_range(50.0, 1150.0), 120.0)
+	
+	path_follow.add_child(pirate)
 	

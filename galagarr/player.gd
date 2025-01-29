@@ -1,5 +1,6 @@
 extends Area2D
 signal hit
+@export var player_bullet: PackedScene
 @export var speed = 250 # How fast the player will move (pixels/sec)
 var screen_size # size of the game window
 var sprite_size # size of the sprite
@@ -40,11 +41,22 @@ func _process(delta: float):
 	position += velocity * delta
 	if sprite_size and screen_size:
 		position = position.clamp(sprite_size / 2, screen_size - sprite_size / 2)
-
+#3
 func _on_body_entered(body: Node2D) -> void:
 	hit.emit()
 	# Must be deferred as we can't change physics properties on a physics callback.
 	$CollisionShape2D.set_deferred("disabled", true)
+
+func _unhandled_input(event):
+	if event.is_action_pressed("shoot"):
+		fire_cannon()
+
+func fire_cannon():
+	var bullet = player_bullet.instantiate()
+	#POSITION OF BULLET SPAWN
+	bullet.position = global_position + Vector2(-125,-110) #for some reason have to offset by this weird number to get it to shoot from front. Might have to change if get a new image - Will
+	
+	get_parent().add_child(bullet)
 
 func start(pos: Vector2):
 	position = pos

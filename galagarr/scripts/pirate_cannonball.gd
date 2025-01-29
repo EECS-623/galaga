@@ -14,7 +14,7 @@ func _process(delta: float) -> void:
 
 # obtains direction of player and orientates ball towards it
 func _direction():
-	var player = get_node("../../Player")
+	var player = get_node("/root/Main/Game/Player")
 	
 	player_position = player.global_position
 	
