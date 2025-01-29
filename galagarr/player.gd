@@ -4,10 +4,12 @@ signal hit
 @export var speed = 250 # How fast the player will move (pixels/sec)
 var screen_size # size of the game window
 var sprite_size # size of the sprite
+var lives = 3
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	screen_size = get_viewport_rect().size
+	connect("area_entered", Callable(self, "_on_area_entered"))
 
 	# This is all code to prevent the ship from being half off the screen -Will
 	var sprite_node = $AnimatedSprite2D
@@ -42,10 +44,16 @@ func _process(delta: float):
 	if sprite_size and screen_size:
 		position = position.clamp(sprite_size / 2, screen_size - sprite_size / 2)
 #3
-func _on_body_entered(body: Node2D) -> void:
-	hit.emit()
-	# Must be deferred as we can't change physics properties on a physics callback.
-	$CollisionShape2D.set_deferred("disabled", true)
+func _on_area_entered(area: Area2D) -> void:
+	print("hit detected")	
+	if area.is_in_group("pirate_cannonball"):  
+		if(lives == 1):
+			hide()
+		else:
+			lives -= 1
+		print(lives)
+
+		hit.emit()  # Emit hit signal
 
 func _unhandled_input(event):
 	if event.is_action_pressed("shoot"):
