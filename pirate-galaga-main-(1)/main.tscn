@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://6ldh7nv2kvfj"]
+
+[ext_resource type="PackedScene" uid="uid://dvshqx1afu2e" path="res://player.tscn" id="1_js0dy"]
+[ext_resource type="Script" path="res://main.gd" id="1_ojom0"]
+[ext_resource type="Script" path="res://scripts/game.gd" id="3_g45jv"]
+[ext_resource type="PackedScene" uid="uid://1shmaegf7hpi" path="res://pirate_ship.tscn" id="3_s7sji"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_ojom0")
+
+[node name="MobTimer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="Game" type="Node2D" parent="."]
+script = ExtResource("3_g45jv")
+pirate_ship = ExtResource("3_s7sji")
+
+[node name="Player" parent="Game" instance=ExtResource("1_js0dy")]
+
+[connection signal="timeout" from="MobTimer" to="Game" method="_on_mob_timer_timeout"]
