@@ -7,6 +7,8 @@ var direction
 func _ready() -> void:
 	_direction()
 	set_monitoring(true)
+	add_to_group("pirate_cannonball")
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -29,4 +31,5 @@ func _move(delta: float):
 
 # On shape entered lose life and remove projectile
 func _on_area_shape_entered(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int) -> void:
+	
 	queue_free()
