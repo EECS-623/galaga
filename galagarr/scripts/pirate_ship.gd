@@ -1,8 +1,5 @@
 extends Area2D
-signal hit
 var screen_size
-var time = 0
-var speed = 100
 @export var projectile: PackedScene
 
 # Called when the node enters the scene tree for the first time.
@@ -41,8 +38,16 @@ func _on_projectile_timer_timeout() -> void:
 	_shoot_projectile()
 
 func _move(delta: float):
+	
 	var path = get_parent()
-	path.progress += 100 * delta
+	
+	# while path_ratio < 0.95
+	path.progress += 250 * delta
+	
+	# if path_ratio >= 0.95, then go towards a point on pirate path
+	# i.e move node to different location in tree
+	# create a new path follower on the 2d path outlined above...
+	# enable property on pirate ship and body behavior that they can "push" each other
 
 #func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	#queue_free()

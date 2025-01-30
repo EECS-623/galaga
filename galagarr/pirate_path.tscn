@@ -1,12 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://clqq5j8cs4u11"]
+[gd_scene load_steps=5 format=3 uid="uid://clqq5j8cs4u11"]
 
 [ext_resource type="Script" path="res://scripts/pirate_path.gd" id="1_tacqc"]
-
-[sub_resource type="Curve2D" id="Curve2D_obcvb"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 192, 128, 0, 0, 0, 0, 192, 384, 0, 0, 0, 0, 1088, 384, 0, 0, 0, 0, 1088, 128, 0, 0, 0, 0, 192, 128)
-}
-point_count = 5
 
 [sub_resource type="Curve2D" id="Curve2D_rgc5c"]
 _data = {
@@ -14,11 +8,28 @@ _data = {
 }
 point_count = 6
 
+[sub_resource type="Curve2D" id="Curve2D_emuvg"]
+_data = {
+"points": PackedVector2Array(544.079, 0.690456, -544.079, -0.690456, 1280, 576, 0.471808, 39.5908, -0.471808, -39.5908, 736, 384, -31.4911, 0, 31.4911, 0, 800, 320, 0, -39.9399, 0, 39.9399, 864, 384, 32.2592, 0, -32.2592, 0, 800, 448, -0.768075, 40.324, 0.768075, -40.324, 736, 384)
+}
+point_count = 6
+
+[sub_resource type="Curve2D" id="Curve2D_37i7q"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 192, 256, 0, 0, 0, 0, 1088, 256, 0, 0, 0, 0, 1088, 256, 0, 0, 0, 0, 192, 256)
+}
+point_count = 4
+
 [node name="PiratePath" type="Node2D"]
 script = ExtResource("1_tacqc")
 
-[node name="Path1" type="Path2D" parent="."]
-curve = SubResource("Curve2D_obcvb")
-
 [node name="BottomLeftPath" type="Path2D" parent="."]
+position = Vector2(0, -32)
 curve = SubResource("Curve2D_rgc5c")
+
+[node name="BottomRightPath" type="Path2D" parent="."]
+position = Vector2(0, -32)
+curve = SubResource("Curve2D_emuvg")
+
+[node name="PiratePath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_37i7q")

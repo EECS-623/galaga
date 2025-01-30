@@ -12,17 +12,21 @@ func _process(delta: float) -> void:
 
 # When the mob timer times out, spawn a child instance of pirate ship
 func _on_mob_timer_timeout() -> void:
+	
+	# while num enemies < max enemies:
 	var pirate = pirate_ship.instantiate()
 	
 	var path_follow = PathFollow2D.new()
 	
-	var pirate_ship_path = $PiratePath/Path1
+	var pirate_ship_path = $PiratePath/BottomLeftPath
 	
 	pirate_ship_path.add_child(path_follow)
 	
 	path_follow.position = pirate_ship_path.get_position()
 	
-	path_follow.progress_ratio = randf()
+	path_follow.progress_ratio = 0
+	
+	#pirate ship rotate 
 	
 	print(path_follow.progress)
 	print(path_follow.position)
