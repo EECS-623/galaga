@@ -45,8 +45,9 @@ func _process(delta: float):
 		position = position.clamp(sprite_size / 2, screen_size - sprite_size / 2)
 #3
 func _on_area_entered(area: Area2D) -> void:
-	print("hit detected")	
-	if area.is_in_group("pirate_cannonball"):  
+		
+	if area.is_in_group("pirate_cannonball"):
+		print("hit detected") 
 		if(lives == 1):
 			hide()
 		else:

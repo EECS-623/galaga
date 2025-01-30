@@ -7,6 +7,8 @@
 radius = 13.9284
 
 [node name="Player_Bullet" type="Area2D"]
+collision_layer = 4
+collision_mask = 8
 script = ExtResource("1_7b7ye")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

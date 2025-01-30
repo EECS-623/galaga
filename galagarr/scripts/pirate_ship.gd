@@ -4,11 +4,11 @@ var screen_size
 var time = 0
 var speed = 100
 @export var projectile: PackedScene
-@export var cannon_ball: PackedScene
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$ProjectileTimer.start
+	add_to_group("pirate_ship")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -16,12 +16,13 @@ func _process(delta: float) -> void:
 	_move(delta)
 
 # Called when a cannon_ball hits the pirateship
-func _on_body_entered(body: Node2D) -> void:
-	if body.name == cannon_ball.name:
-		print("Collided with: ", body.name)
-		var path = get_parent()
-		path.queue_free()
-		queue_free()
+#func _on_body_entered(area: Area2D) -> void:
+	#print("pirate_hit")
+	#if area.is_in_group("player_bullet"):
+		#print("pirate hit")
+		#var path = get_parent()
+		#path.queue_free()
+		#queue_free()
 
 func _shoot_projectile():
 	var new_projectile = projectile.instantiate()
@@ -43,3 +44,8 @@ func _move(delta: float):
 
 #func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	#queue_free()
+
+func _on_area_entered(area: Area2D) -> void:
+	print("pirate_hit")
+	queue_free()
+	area.queue_free()
