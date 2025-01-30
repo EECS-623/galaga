@@ -1,4 +1,4 @@
-extends Node
+extends Area2D
 signal hit
 var screen_size
 var time = 0
@@ -27,9 +27,11 @@ func _process(delta: float) -> void:
 func _shoot_projectile():
 	var new_projectile = projectile.instantiate()
 	
-	new_projectile.position = Vector2(0.0, 50.0 )
+	var game = $/root/Main/Game
 	
-	add_child(new_projectile)
+	new_projectile.global_position = get_global_position()
+	
+	game.add_child(new_projectile)
 
 func _on_projectile_timer_timeout() -> void:
 	_shoot_projectile()

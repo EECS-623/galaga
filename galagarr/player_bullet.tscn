@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://c8gysm1nhqsrd"]
+[gd_scene load_steps=4 format=3 uid="uid://bb0kumldc2x4k"]
 
 [ext_resource type="Script" path="res://player_bullet.gd" id="1_7b7ye"]
 [ext_resource type="Texture2D" uid="uid://b6xf8g754edl0" path="res://art/cannonball.jpg" id="2_m1605"]
