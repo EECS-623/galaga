@@ -1,5 +1,7 @@
 extends Node2D
 @export var pirate_ship: PackedScene
+var num_enemies = 0
+var max_enemies = 10
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
