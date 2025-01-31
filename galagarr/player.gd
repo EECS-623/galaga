@@ -2,15 +2,19 @@ extends Area2D
 signal hit
 @export var player_bullet: PackedScene
 @export var speed = 250 # How fast the player will move (pixels/sec)
+@onready var bar = $cooldownbar
 var screen_size # size of the game window
 var sprite_size # size of the sprite
 var lives = 3
+var progress = 100
+var cooldown = false
+var bar_speed = 2.5
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	screen_size = get_viewport_rect().size
 	connect("area_entered", Callable(self, "_on_area_entered"))
-
+	
 	# This is all code to prevent the ship from being half off the screen -Will
 	var sprite_node = $AnimatedSprite2D
 	if sprite_node and sprite_node.sprite_frames:
@@ -23,7 +27,8 @@ func _ready():
 			print("Error: Texture for animation 'ship' not found. Perhaps, you renamed the ship animation sprite")
 	else:
 		print("Error: AnimatedSprite2D or sprite_frames is not set up correctly.")
-	
+		bar.value = progress
+			
 	#hide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -43,6 +48,13 @@ func _process(delta: float):
 	position += velocity * delta
 	if sprite_size and screen_size:
 		position = position.clamp(sprite_size / 2, screen_size - sprite_size / 2)
+		
+	if cooldown:
+		progress += bar_speed
+		if progress >= 100:
+			cooldown = false
+	bar.value = progress
+
 #3
 func _on_area_entered(area: Area2D) -> void:
 		
@@ -61,11 +73,13 @@ func _unhandled_input(event):
 		fire_cannon()
 
 func fire_cannon():
-	var bullet = player_bullet.instantiate()
+	if not cooldown:
+		var bullet = player_bullet.instantiate()
 	#POSITION OF BULLET SPAWN
-	bullet.position = global_position + Vector2(-125,-110) #for some reason have to offset by this weird number to get it to shoot from front. Might have to change if get a new image - Will
-	
-	get_parent().add_child(bullet)
+		bullet.position = global_position + Vector2(-125,-110) #for some reason have to offset by this weird number to get it to shoot from front. Might have to change if get a new image - Will
+		cooldown = true
+		progress = 0
+		get_parent().add_child(bullet)
 
 func start(pos: Vector2):
 	position = pos
