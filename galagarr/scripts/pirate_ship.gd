@@ -1,9 +1,13 @@
 extends Area2D
 var screen_size
 @export var projectile: PackedScene
+var speed
+var shot_delay = 3
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	speed = 250 + 1.5 * (Global.wave - 1)
+	$ProjectileTimer.wait_time = shot_delay - .80 * (Global.wave - 1)
 	$ProjectileTimer.start
 	add_to_group("pirate_ship")
 
@@ -42,7 +46,7 @@ func _move(delta: float):
 	var path = get_parent()
 	
 	# while path_ratio < 0.95
-	path.progress += 250 * delta
+	path.progress += speed * delta
 	
 	# if path_ratio >= 0.95, then go towards a point on pirate path
 	# i.e move node to different location in tree
@@ -53,6 +57,7 @@ func _move(delta: float):
 	#queue_free()
 
 func _on_area_entered(area: Area2D) -> void:
+	Global.enemies_left -= 1
 	print("pirate_hit")
 	queue_free()
 	area.queue_free()
