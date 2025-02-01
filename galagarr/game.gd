@@ -11,8 +11,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	print("Enemies Left: ")
-	print(Global.enemies_left)
+	#print("Enemies Left: ")
+	#print(Global.enemies_left)
 	if Global.enemies_left == 0:
 		Global.start_enemies += 2
 		Global.wave += 1
@@ -71,9 +71,9 @@ func spwan_enemies():
 			#shark ship rotate 
 			my_shark.rotation -= PI / 2
 
-			print(path_follow.progress)
-			print(path_follow.position)
-			print(path_follow.global_position)
+			#print(path_follow.progress)
+			#print(path_follow.position)
+			#print(path_follow.global_position)
 			
 			#pirate = path_follow.position
 			
@@ -105,9 +105,9 @@ func spwan_enemies():
 			#pirate ship rotate 
 			pirate.rotation -= PI / 2
 
-			print(path_follow.progress)
-			print(path_follow.position)
-			print(path_follow.global_position)
+			#print(path_follow.progress)
+			#print(path_follow.position)
+			#print(path_follow.global_position)
 			
 			#pirate = path_follow.position
 			

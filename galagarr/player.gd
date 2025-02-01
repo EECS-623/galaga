@@ -67,7 +67,15 @@ func _on_area_entered(area: Area2D) -> void:
 		print(lives)
 
 		hit.emit()  # Emit hit signal
+	if area.is_in_group("shark"):
+		print("shark hit detected") 
+		if(lives == 1):
+			hide()
+		else:
+			lives -= 1
+		print(lives)
 
+		hit.emit()  # Emit hit signal
 func _unhandled_input(event):
 	if event.is_action_pressed("shoot"):
 		fire_cannon()

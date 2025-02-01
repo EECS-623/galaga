@@ -75,9 +75,9 @@ func _move_to_path(delta: float):
 	# create if statement here for the different paths
 	var path = $"../FloatingPath"
 	var start_point = $"../FloatingPath/StartPoint".global_position
-	print(start_point)
+	#print(start_point)
 	var distance = position.distance_to(start_point)
-	print(distance)
+	#print(distance)
 	if (distance < 100):
 		var new_path_follow = PathFollow2D.new()
 		path.get_parent().remove_child(self)
