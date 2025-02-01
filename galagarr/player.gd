@@ -8,7 +8,7 @@ var sprite_size # size of the sprite
 var lives = 3
 var progress = 100
 var cooldown = false
-var bar_speed = 2.5
+var bar_speed = 6
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
