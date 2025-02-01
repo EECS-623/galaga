@@ -1,0 +1,32 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1738438460
+controls.tscn::PackedScene::5670303305795212866::1738437186::0::1::::<><>::res://scripts/controls.gd
+game.gd::GDScript::-1::1738437186::0::1::::<>Node2D<>::
+icon.svg::CompressedTexture2D::1841752452792026435::1738437186::1738437190::1::::<><>::
+main.gd::GDScript::-1::1738437186::0::1::::<>Node<>::
+main.tscn::PackedScene::2198758661429599591::1738438460::0::1::::<><>::uid://dvshqx1afu2e::::res://player.tscn<>res://main.gd<>uid://c32jmorevepd6::::res://music/Galleygarr (Main Theme).wav<>res://game.gd<>uid://1shmaegf7hpi::::res://pirate_ship.tscn<>uid://dle8ke8aqnb8r::::res://pirate_path.tscn
+menu.gd::GDScript::-1::1738437186::0::1::::<>Control<>::
+menu.tscn::PackedScene::8762244654124052569::1738438459::0::1::::<><>::res://menu.gd
+pirate_cannonball.tscn::PackedScene::1823236742933294199::1738437186::0::1::::<><>::res://scripts/pirate_cannonball.gd<>uid://b6xf8g754edl0::::res://art/cannonball.jpg
+pirate_path.tscn::PackedScene::7941618621908081695::1738437186::0::1::::<><>::res://scripts/pirate_path.gd
+pirate_ship.tscn::PackedScene::1862515189097920178::1738438459::0::1::::<><>::res://scripts/pirate_ship.gd<>uid://bkwypiromucbq::::res://art/pirateship.png<>uid://08gpb37be8u2::::res://pirate_cannonball.tscn
+player.gd::GDScript::-1::1738437186::0::1::::<>Area2D<>::
+player.tscn::PackedScene::255024747262128530::1738437186::0::1::::<><>::res://player.gd<>uid://bb0kumldc2x4k::::res://player_bullet.tscn<>uid://b80sqoxkh3wg3::::res://art/ship.jpg
+player_bullet.gd::GDScript::-1::1738437186::0::1::::<>Area2D<>::
+player_bullet.tscn::PackedScene::2508862504401508440::1738437186::0::1::::<><>::res://player_bullet.gd<>uid://b6xf8g754edl0::::res://art/cannonball.jpg
+shark_path.tscn::PackedScene::5407863416316752584::1738438518::0::1::::<><>::res://scripts/pirate_path.gd
+shark.tscn::PackedScene::3053176093493237244::1738438460::0::1::::<><>::res://scripts/shark.gd<>uid://dbci4rgbo1t8a::::res://art/shark.jpg
+::res://art/::1738438072
+cannonball.jpg::CompressedTexture2D::4610118406953993419::1738437186::1738437190::1::::<><>::
+pirateship.png::CompressedTexture2D::3135209872499105178::1738437186::1738437190::1::::<><>::
+shark.jpg::CompressedTexture2D::7234118076421796862::1738438042::1738438072::1::::<><>::
+ship.jpg::CompressedTexture2D::4755384217494177168::1738437186::1738437190::1::::<><>::
+::res://music/::1738437191
+Galleygarr (Main Theme).wav::AudioStreamWAV::6794435832871036273::1738437186::1738437191::1::::<><>::
+::res://scripts/::1738438254
+controls.gd::GDScript::-1::1738437186::0::1::::<>Control<>::
+global.gd::GDScript::-1::1738437186::0::1::::<>Node<>::
+pirate_cannonball.gd::GDScript::-1::1738437186::0::1::::<>Area2D<>::
+pirate_path.gd::GDScript::-1::1738437186::0::1::::<>Node2D<>::
+pirate_ship.gd::GDScript::-1::1738437569::0::1::::<>Area2D<>::
+shark.gd::GDScript::-1::1738438254::0::1::::<>Area2D<>::
