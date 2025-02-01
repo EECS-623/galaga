@@ -4,22 +4,31 @@ var speed
 var to_floating = false
 var floating = false
 var direction
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	speed = 250 + 1.5 * (Global.wave - 1)
 	var to_floating = false
 	var floating = false
 	add_to_group("shark")
+	Global.above_water = 0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if global_position.y >= 200:
+		$Sprite2D.animation =  "shark_above_water"
+		Global.above_water = 1
+		#$Sprite2D.play("shark_below_water")
+	else:
+		$Sprite2D.animation =  "shark_below_water"
+		Global.above_water = 0
+		#$Sprite2D.play("shark_above_water")
 	if (to_floating == false):
 		_move(delta)
 	elif (to_floating == true && floating == false):
 		_move_to_path(delta)
 	elif (floating == true):
 		_move(delta)
+
 
 # Called when a cannon_ball hits the pirateship
 #func _on_body_entered(area: Area2D) -> void:
@@ -72,7 +81,7 @@ func _move_to_path(delta: float):
 		floating = true
 
 func _on_area_entered(area: Area2D) -> void:
-	if area.is_in_group("player_bullet"):
+	if area.is_in_group("player_bullet") and Global.above_water == 1:
 		Global.enemies_left -= 1
 		print("shark_hit")
 		queue_free()

@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bjq8mm863b4mi"]
+[gd_scene load_steps=5 format=3 uid="uid://bjq8mm863b4mi"]
 
 [ext_resource type="Script" path="res://scripts/shark.gd" id="1_15erg"]
 [ext_resource type="Texture2D" uid="uid://dbci4rgbo1t8a" path="res://art/shark.jpg" id="2_s11cd"]
-[ext_resource type="Texture2D" uid="uid://dbifax41qgb2d" path="res://art/shark_underwater.jpg" id="3_w152u"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nprcj"]
 animations = [{
@@ -14,10 +13,7 @@ animations = [{
 "name": &"shark_above_water",
 "speed": 5.0
 }, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_w152u")
-}],
+"frames": [],
 "loop": true,
 "name": &"shark_below_water",
 "speed": 5.0
@@ -31,11 +27,11 @@ position = Vector2(47, 43)
 script = ExtResource("1_15erg")
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(14.0703, 17.5)
 scale = Vector2(0.272973, 0.216667)
 sprite_frames = SubResource("SpriteFrames_nprcj")
-animation = &"shark_below_water"
+animation = &"shark_above_water"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(15, 19.5)
