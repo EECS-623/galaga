@@ -1,16 +1,26 @@
 extends Node2D
 @export var pirate_ship: PackedScene
+@export var shark: PackedScene
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	Global.wave = 1
+	Global.wave = 0
 	Global.enemies_left = 0
-	pass # Replace with function body.
+	Global.start_enemies = 6
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	start_wave()
+	print("Enemies Left: ")
+	print(Global.enemies_left)
+	if Global.enemies_left == 0:
+		Global.start_enemies += 2
+		Global.wave += 1
+		Global.enemies_left = Global.start_enemies
+		print("reached new wave")
+		start_wave()
+
+	
 	
 
 # When the mob timer times out, spawn a child instance of pirate ship
@@ -45,13 +55,41 @@ func _process(delta: float) -> void:
 func spwan_enemies():	
 	
 	#TODO Similar spawning for sharks on shark paths
-	
+	var shark_paths = [$SharkPath/BottomLeftPath]
+	for x in range(Global.start_enemies/2):
+		for shark_path in shark_paths:
+			var my_shark = shark.instantiate()
+
+			var path_follow = PathFollow2D.new()
+			
+			shark_path.add_child(path_follow)
+			
+			path_follow.position = shark_path.get_position()
+			
+			path_follow.progress_ratio = 0
+			
+			#shark ship rotate 
+			my_shark.rotation -= PI / 2
+
+			print(path_follow.progress)
+			print(path_follow.position)
+			print(path_follow.global_position)
+			
+			#pirate = path_follow.position
+			
+			#pirate.global_position = 
+			#Vector2(randf_range(50.0, 1150.0), 120.0)
+			
+			path_follow.add_child(my_shark)
+			
+			#Delay before spawning next shark
+		await get_tree().create_timer(0.4).timeout
 	#HERE YOU GO @ANDREW
 	#var paths = [$PiratePath/BottomLeftPath, $PiratePath/TopPath, $PiratePath/BottomRightPath]
 	var paths = [$PiratePath/BottomLeftPath]
 
 	#I chose this order of loop so that the ships come in from all paths at once.
-	for x in range(4):
+	for x in range(Global.start_enemies/2):
 		for pirate_ship_path in paths:
 			var pirate = pirate_ship.instantiate()
 
@@ -85,14 +123,13 @@ func spwan_enemies():
 	
 func start_wave():
 	#Check if all enemies are dead
-	if Global.enemies_left == 0:
+	#if Global.enemies_left == 0:
 		#If they are, wait for 2 seconds
 		#DISPLAY LEVEL ICON HERE (use Global.wave)
-		Global.enemies_left = 12
-		Global.wave += 1
-		print(Global.wave)
-		await get_tree().create_timer(2).timeout 
+	print("wave number: ")
+	print(Global.wave)
+	await get_tree().create_timer(2).timeout 
 
-		spwan_enemies()
+	spwan_enemies()
 	
 	
