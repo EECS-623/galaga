@@ -1,12 +1,10 @@
 extends Node2D
 @export var pirate_ship: PackedScene
-var num_enemies = 0
-var max_enemies = 10
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Global.wave = 1
-	Global.enemies_left = 12
+	Global.enemies_left = 0
 	pass # Replace with function body.
 
 
@@ -81,7 +79,7 @@ func spwan_enemies():
 			path_follow.add_child(pirate)
 			
 			#Delay before spawning next pirate
-		await get_tree().create_timer(0.5).timeout
+		await get_tree().create_timer(0.4).timeout
 
 	
 	
