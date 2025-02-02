@@ -1,14 +1,21 @@
 extends Area2D
 signal hit
 @export var player_bullet: PackedScene
+@export var barrel: PackedScene
 @export var speed = 250 # How fast the player will move (pixels/sec)
 @onready var bar = $cooldownbar
+@onready var barAlt = $cooldownbar
+
 var screen_size # size of the game window
 var sprite_size # size of the sprite
 var lives: int = 3
 var progress = 100
 var cooldown = false
+var progressAlt = 100
+var cooldownAlt = false
+
 var bar_speed = 6
+var barAlt_speed = 0.1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -54,6 +61,11 @@ func _process(delta: float):
 		if progress >= 100:
 			cooldown = false
 	bar.value = progress
+	if cooldownAlt:
+		progressAlt += barAlt_speed
+		if progressAlt >= 100:
+			cooldownAlt = false
+	barAlt.value = progressAlt	
 
 #3
 func _on_area_entered(area: Area2D) -> void:
@@ -81,6 +93,8 @@ func _on_area_entered(area: Area2D) -> void:
 func _unhandled_input(event):
 	if event.is_action_pressed("shoot"):
 		fire_cannon()
+	if event.is_action_pressed("altFire"):
+		fireBarrel()		
 
 func fire_cannon():
 	if not cooldown:
@@ -90,6 +104,15 @@ func fire_cannon():
 		cooldown = true
 		progress = 0
 		get_parent().add_child(bullet)
+
+func fireBarrel():
+	if not cooldownAlt:
+		var explosive = barrel.instantiate()
+		#POSITION OF BULLET SPAWN
+		explosive.position = global_position + Vector2(73,30) #for some reason have to offset by this weird number to get it to shoot from front. Might have to change if get a new image - Will
+		cooldownAlt = true
+		progressAlt = 0
+		get_parent().add_child(explosive)		
 
 func start(pos: Vector2):
 	position = pos
