@@ -53,6 +53,8 @@ curve = SubResource("Curve2D_rgc5c")
 position = Vector2(0, -32)
 curve = SubResource("Curve2D_emuvg")
 
+[node name="TopPath" type="Node2D" parent="."]
+
 [node name="TopPath1" type="Path2D" parent="."]
 curve = SubResource("Curve2D_dhc5x")
 
