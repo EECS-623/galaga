@@ -11,13 +11,13 @@ script = ExtResource("1_ixswl")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 384.0
-offset_top = 120.0
-offset_right = 892.0
-offset_bottom = 325.0
+offset_left = 392.0
+offset_top = 88.0
+offset_right = 900.0
+offset_bottom = 293.0
 alignment = 1
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="GameOverLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 65
 text = "Game Over"
@@ -42,6 +42,18 @@ text = "Play Again"
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Quit"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_top = 288.0
+offset_right = 1280.0
+offset_bottom = 356.0
+
+[node name="FinalScoreLabel" type="Label" parent="VBoxContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Final Score: 0"
+horizontal_alignment = 1
 
 [connection signal="pressed" from="VBoxContainer2/PlayAgain" to="." method="_on_play_again_pressed"]
 [connection signal="pressed" from="VBoxContainer2/Quit" to="." method="_on_quit_pressed"]

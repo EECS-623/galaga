@@ -14,10 +14,10 @@ script = ExtResource("1_yqm5l")
 
 [node name="LifeCounter" type="HBoxContainer" parent="Control"]
 layout_mode = 0
-offset_left = 2.0
-offset_top = 647.0
-offset_right = 230.0
-offset_bottom = 718.0
+offset_left = 24.0
+offset_top = 664.0
+offset_right = 215.0
+offset_bottom = 721.0
 
 [node name="Life1" type="TextureRect" parent="Control/LifeCounter"]
 layout_mode = 2
@@ -38,7 +38,7 @@ expand_mode = 2
 layout_mode = 0
 offset_left = 30.0
 offset_top = 22.0
-offset_right = 395.0
+offset_right = 627.0
 offset_bottom = 68.0
 theme_override_font_sizes/font_size = 30
 text = "Score: 0"
