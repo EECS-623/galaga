@@ -14,8 +14,6 @@ func _ready() -> void:
 	speed = 250 + 1.5 * (Global.wave - 1)
 	$ProjectileTimer.wait_time = shot_delay - .80 * (Global.wave - 1)
 	$ProjectileTimer.start
-	var to_floating = false
-	var floating = false
 	add_to_group("pirate_ship")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
