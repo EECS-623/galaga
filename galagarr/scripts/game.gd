@@ -54,7 +54,7 @@ func _process(delta: float) -> void:
 func spawn_enemies():	
 	
 	#TODO Similar spawning for sharks on shark paths
-	var shark_paths = [$SharkPath/BottomLeftPath]
+	var shark_paths = [$SharkPath/MiddlePath]
 	
 	# ratio for sharks spawning should be less than pirates
 	# sharks should be faster than pirates as well

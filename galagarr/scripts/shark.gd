@@ -24,10 +24,10 @@ func _process(delta: float) -> void:
 		#$Sprite2D.play("shark_above_water")
 	if (to_floating == false):
 		_move(delta)
-	elif (to_floating == true && floating == false):
-		_move_to_path(delta)
-	elif (floating == true):
-		_move(delta)
+	#elif (to_floating == true && floating == false):
+		#_move_to_path(delta)
+	#elif (floating == true):
+		#_move(delta)
 
 
 # Called when a cannon_ball hits the pirateship
@@ -46,39 +46,39 @@ func _move(delta: float):
 	
 	#if self.rotation != -PI/2, then rotate towards (some math formula involving delta)
 	
-	if (path_follower.progress_ratio > 0.99 && floating == false):
-		# create if statement here for the different paths
-		var path = get_node("../../../FloatingPath")
-		path_follower.remove_child(self)
-		path.get_parent().add_child(self)
-		self.global_position = path_follower.global_position
-		var start_point = $"../FloatingPath/StartPoint".global_position
-		look_at(start_point)
-		self.rotation -= PI/2
-		direction = (start_point - global_position).normalized()
-		to_floating = true
+	#if (path_follower.progress_ratio > 0.99 && floating == false):
+		## create if statement here for the different paths
+		#var path = get_node("../../../FloatingPath")
+		#path_follower.remove_child(self)
+		#path.get_parent().add_child(self)
+		#self.global_position = path_follower.global_position
+		#var start_point = $"../FloatingPath/StartPoint".global_position
+		#look_at(start_point)
+		#self.rotation -= PI/2
+		#direction = (start_point - global_position).normalized()
+		#to_floating = true
 
-func _move_to_path(delta: float):
-	global_position += direction * speed * delta
-	
-	# if the distance is less than a certain amount, then floating is true
-	# create if statement here for the different paths
-	var path = $"../FloatingPath"
-	var start_point = $"../FloatingPath/StartPoint".global_position
-	print(start_point)
-	var distance = position.distance_to(start_point)
-	print(distance)
-	if (distance < 100):
-		var new_path_follow = PathFollow2D.new()
-		path.get_parent().remove_child(self)
-		path.add_child(new_path_follow)
-		new_path_follow.add_child(self)
-		new_path_follow.global_position = path.global_position
-		self.position = new_path_follow.position
-		
-		self.rotation = -PI/2
-		
-		floating = true
+#func _move_to_path(delta: float):
+	#global_position += direction * speed * delta
+	#
+	## if the distance is less than a certain amount, then floating is true
+	## create if statement here for the different paths
+	#var path = $"../FloatingPath"
+	#var start_point = $"../FloatingPath/StartPoint".global_position
+	#print(start_point)
+	#var distance = position.distance_to(start_point)
+	#print(distance)
+	#if (distance < 100):
+		#var new_path_follow = PathFollow2D.new()
+		#path.get_parent().remove_child(self)
+		#path.add_child(new_path_follow)
+		#new_path_follow.add_child(self)
+		#new_path_follow.global_position = path.global_position
+		#self.position = new_path_follow.position
+		#
+		#self.rotation = -PI/2
+		#
+		#floating = true
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player_bullet") and Global.above_water == 1:
