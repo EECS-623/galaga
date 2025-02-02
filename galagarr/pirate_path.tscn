@@ -1,6 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dle8ke8aqnb8r"]
-
-[ext_resource type="Script" path="res://scripts/pirate_path.gd" id="1_tacqc"]
+[gd_scene load_steps=8 format=3 uid="uid://dle8ke8aqnb8r"]
 
 [sub_resource type="Curve2D" id="Curve2D_rgc5c"]
 _data = {
@@ -14,14 +12,37 @@ _data = {
 }
 point_count = 6
 
-[sub_resource type="Curve2D" id="Curve2D_37i7q"]
+[sub_resource type="Curve2D" id="Curve2D_dhc5x"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 192, 255, 0, 0, 0, 0, 1088, 256, 0, 0, 0, 0, 1088, 256, 0, 0, 0, 0, 192, 256)
+"points": PackedVector2Array(0, -64.8118, 0, 64.8118, 512, 0, 0, 0, 0, 0, 576, 128)
 }
-point_count = 4
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_xcyko"]
+_data = {
+"points": PackedVector2Array(0, -64.4414, 0, 64.4414, 768, 0, 0, 0, 0, 0, 704, 128)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_jsadu"]
+_data = {
+"points": PackedVector2Array(0.866219, 31.7131, -0.866219, -31.7131, 384, 160, 63.8217, -0.236702, -63.8217, 0.236702, 256, 128, -0.499943, -33.3879, 0.499943, 33.3879, 128, 160, -64.0181, -0.357903, 64.0181, 0.357903, 256, 192, -0.310111, 32.4938, 0.310111, -32.4938, 384, 160)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_k5bf3"]
+_data = {
+"points": PackedVector2Array(64.0723, 0.66742, -64.0723, -0.66742, 640, 192, 0, -33.2586, 0, 33.2586, 512, 224, -63.4049, 0, 63.4049, 0, 640, 256, 0, 33.371, 0, -33.371, 768, 224, 64.7397, -0.66742, -64.7397, 0.66742, 640, 192)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_jjhsk"]
+_data = {
+"points": PackedVector2Array(0.615433, -32.5514, -0.615433, 32.5514, 896, 160, -64.5416, 0.79903, 64.5416, -0.79903, 1024, 192, 1.21148, 33.2816, -1.21148, -33.2816, 1152, 160, 65.7013, 0.466897, -65.7013, -0.466897, 1024, 128, 0.0541992, -33.1126, -0.0541992, 33.1126, 896, 160)
+}
+point_count = 5
 
 [node name="PiratePath" type="Node2D"]
-script = ExtResource("1_tacqc")
 
 [node name="BottomLeftPath" type="Path2D" parent="."]
 position = Vector2(0, -32)
@@ -32,10 +53,26 @@ curve = SubResource("Curve2D_rgc5c")
 position = Vector2(0, -32)
 curve = SubResource("Curve2D_emuvg")
 
-[node name="FloatingPath" type="Path2D" parent="."]
-position = Vector2(0, -64)
-curve = SubResource("Curve2D_37i7q")
+[node name="TopPath1" type="Path2D" parent="."]
+curve = SubResource("Curve2D_dhc5x")
 
-[node name="StartPoint" type="Marker2D" parent="FloatingPath"]
-position = Vector2(192, 256)
-gizmo_extents = 0.0
+[node name="TopPath2" type="Path2D" parent="."]
+curve = SubResource("Curve2D_xcyko")
+
+[node name="TopLeftCircle" type="Path2D" parent="."]
+curve = SubResource("Curve2D_jsadu")
+
+[node name="StartPoint" type="Marker2D" parent="TopLeftCircle"]
+position = Vector2(384, 160)
+
+[node name="TopMiddleCircle" type="Path2D" parent="."]
+curve = SubResource("Curve2D_k5bf3")
+
+[node name="StartPoint" type="Marker2D" parent="TopMiddleCircle"]
+position = Vector2(640, 192)
+
+[node name="TopRightCircle" type="Path2D" parent="."]
+curve = SubResource("Curve2D_jjhsk")
+
+[node name="StartPoint" type="Marker2D" parent="TopRightCircle"]
+position = Vector2(896, 160)

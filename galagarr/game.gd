@@ -6,8 +6,7 @@ extends Node2D
 func _ready() -> void:
 	Global.wave = 0
 	Global.enemies_left = 0
-	Global.start_enemies = 6
-
+	Global.start_enemies = 4
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -16,7 +15,7 @@ func _process(delta: float) -> void:
 	if Global.enemies_left == 0:
 		Global.start_enemies += 2
 		Global.wave += 1
-		Global.enemies_left = Global.start_enemies
+		Global.enemies_left = Global.start_enemies * 2
 		print("reached new wave")
 		start_wave()
 
@@ -56,6 +55,9 @@ func spwan_enemies():
 	
 	#TODO Similar spawning for sharks on shark paths
 	var shark_paths = [$SharkPath/BottomLeftPath]
+	
+	# ratio for sharks spawning should be less than pirates
+	# sharks should be faster than pirates as well
 	for x in range(Global.start_enemies/2):
 		for shark_path in shark_paths:
 			var my_shark = shark.instantiate()
@@ -84,15 +86,27 @@ func spwan_enemies():
 			
 			#Delay before spawning next shark
 		await get_tree().create_timer(0.4).timeout
+		
+		#might be better to spawn one side at a time and then wait a bit before spawning the next side...
+		
 	#HERE YOU GO @ANDREW
-	#var paths = [$PiratePath/BottomLeftPath, $PiratePath/TopPath, $PiratePath/BottomRightPath]
-	var paths = [$PiratePath/BottomLeftPath]
+	var paths = [$PiratePath/BottomLeftPath, $PiratePath/TopPath1, $PiratePath/TopPath2, $PiratePath/BottomRightPath]
+	#var paths = [$PiratePath/BottomLeftPath]
 
 	#I chose this order of loop so that the ships come in from all paths at once.
 	for x in range(Global.start_enemies/2):
 		for pirate_ship_path in paths:
+			
+			var path_num
+			if(pirate_ship_path == $PiratePath/BottomLeftPath):
+				path_num = 0
+			elif(pirate_ship_path == $PiratePath/TopPath1 or pirate_ship_path == $PiratePath/TopPath2):
+				path_num = 1
+			elif(pirate_ship_path == $PiratePath/BottomRightPath):
+				path_num = 2
+			
 			var pirate = pirate_ship.instantiate()
-
+			pirate.path_num = path_num
 		
 			var path_follow = PathFollow2D.new()
 			
@@ -104,15 +118,6 @@ func spwan_enemies():
 			
 			#pirate ship rotate 
 			pirate.rotation -= PI / 2
-
-			#print(path_follow.progress)
-			#print(path_follow.position)
-			#print(path_follow.global_position)
-			
-			#pirate = path_follow.position
-			
-			#pirate.global_position = 
-			#Vector2(randf_range(50.0, 1150.0), 120.0)
 			
 			path_follow.add_child(pirate)
 			
