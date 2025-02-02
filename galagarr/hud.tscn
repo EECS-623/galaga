@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5srvqbgbew67"]
+
+[ext_resource type="Texture2D" uid="uid://coxwmi3vc5jjn" path="res://art/heart.png" id="1_df6gt"]
+[ext_resource type="Script" path="res://hud.gd" id="1_yqm5l"]
+
+[node name="HUD" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1282.0
+offset_bottom = 722.0
+script = ExtResource("1_yqm5l")
+
+[node name="LifeCounter" type="HBoxContainer" parent="Control"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 647.0
+offset_right = 230.0
+offset_bottom = 718.0
+
+[node name="Life1" type="TextureRect" parent="Control/LifeCounter"]
+layout_mode = 2
+texture = ExtResource("1_df6gt")
+expand_mode = 2
+
+[node name="Life2" type="TextureRect" parent="Control/LifeCounter"]
+layout_mode = 2
+texture = ExtResource("1_df6gt")
+expand_mode = 2
+
+[node name="Life3" type="TextureRect" parent="Control/LifeCounter"]
+layout_mode = 2
+texture = ExtResource("1_df6gt")
+expand_mode = 2
+
+[node name="ScoreLabel" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 22.0
+offset_right = 395.0
+offset_bottom = 68.0
+theme_override_font_sizes/font_size = 30
+text = "Score: 0"

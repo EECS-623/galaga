@@ -84,5 +84,8 @@ func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player_bullet") and Global.above_water == 1:
 		Global.enemies_left -= 1
 		print("shark_hit")
+		var main = get_tree().get_root().get_node("Main")
+		if main:
+			main.enemy_defeated("shark")
 		queue_free()
 		area.queue_free()

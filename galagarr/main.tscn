@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://6ldh7nv2kvfj"]
+[gd_scene load_steps=11 format=3 uid="uid://6ldh7nv2kvfj"]
 
 [ext_resource type="PackedScene" uid="uid://dvshqx1afu2e" path="res://player.tscn" id="1_js0dy"]
 [ext_resource type="Script" path="res://main.gd" id="1_ojom0"]
+[ext_resource type="PackedScene" uid="uid://c5srvqbgbew67" path="res://hud.tscn" id="2_jo452"]
 [ext_resource type="AudioStream" uid="uid://c32jmorevepd6" path="res://music/Galleygarr (Main Theme).wav" id="2_u8bn3"]
 [ext_resource type="Script" path="res://game.gd" id="3_g45jv"]
 [ext_resource type="PackedScene" uid="uid://1shmaegf7hpi" path="res://pirate_ship.tscn" id="3_s7sji"]
@@ -14,6 +15,8 @@ bg_color = Color(1, 1, 1, 1)
 
 [node name="Main" type="Node"]
 script = ExtResource("1_ojom0")
+
+[node name="HUD" parent="." instance=ExtResource("2_jo452")]
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_u8bn3")

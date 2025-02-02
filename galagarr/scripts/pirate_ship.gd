@@ -93,5 +93,8 @@ func _move_to_path(delta: float):
 func _on_area_entered(area: Area2D) -> void:
 	Global.enemies_left -= 1
 	print("pirate_hit")
+	var main = get_tree().get_root().get_node("Main")
+	if main:
+		main.enemy_defeated("pirate")
 	queue_free()
 	area.queue_free()

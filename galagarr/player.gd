@@ -5,7 +5,7 @@ signal hit
 @onready var bar = $cooldownbar
 var screen_size # size of the game window
 var sprite_size # size of the sprite
-var lives = 3
+var lives: int = 3
 var progress = 100
 var cooldown = false
 var bar_speed = 6
@@ -60,22 +60,24 @@ func _on_area_entered(area: Area2D) -> void:
 		
 	if area.is_in_group("pirate_cannonball"):
 		print("hit detected") 
-		if(lives == 1):
+		if lives == 1:
+			lives = 0
 			hide()
 		else:
 			lives -= 1
-		print(lives)
-
-		hit.emit()  # Emit hit signal
+		print("Lives left: ", lives)
+		hit.emit()
+		
 	if area.is_in_group("shark"):
 		print("shark hit detected") 
-		if(lives == 1):
+		if lives == 1:
+			lives = 0
 			hide()
 		else:
 			lives -= 1
-		print(lives)
+		print("Lives left: ", lives)
+		hit.emit()
 
-		hit.emit()  # Emit hit signal
 func _unhandled_input(event):
 	if event.is_action_pressed("shoot"):
 		fire_cannon()
