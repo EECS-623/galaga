@@ -51,7 +51,7 @@ func _process(delta: float) -> void:
 	#
 	#path_follow.add_child(pirate)
 	#
-func spwan_enemies():	
+func spawn_enemies():	
 	
 	#TODO Similar spawning for sharks on shark paths
 	var shark_paths = [$SharkPath/BottomLeftPath]
@@ -135,6 +135,6 @@ func start_wave():
 	print(Global.wave)
 	await get_tree().create_timer(2).timeout 
 
-	spwan_enemies()
+	spawn_enemies()
 	
 	
