@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/pirate_ship.gd" id="1_b5kj2"]
 [ext_resource type="Texture2D" uid="uid://bkwypiromucbq" path="res://art/pirateship.png" id="1_fq6cu"]
-[ext_resource type="PackedScene" uid="uid://08gpb37be8u2" path="res://scenes/pirate_cannonball.tscn" id="2_3vx8l"]
+[ext_resource type="PackedScene" uid="uid://08gpb37be8u2" path="res://pirate_cannonball.tscn" id="2_3vx8l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pprvu"]
 size = Vector2(22, 60)
