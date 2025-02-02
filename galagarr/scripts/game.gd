@@ -90,29 +90,18 @@ func spawn_enemies():
 		#might be better to spawn one side at a time and then wait a bit before spawning the next side...
 		
 	#HERE YOU GO @ANDREW
-	var paths = [$PiratePath/BottomLeftPath, $PiratePath/TopPath, $PiratePath/BottomRightPath]
+	var paths = [$PiratePath/BottomLeftPath, $PiratePath/TopPath1, $PiratePath/TopPath2, $PiratePath/BottomRightPath]
 	#var paths = [$PiratePath/BottomLeftPath]
 
 	#I chose this order of loop so that the ships come in from all paths at once.
 	for x in range(Global.start_enemies/2):
-		for index in range(paths.size()):
+		for pirate_ship_path in paths:
 			
-			var pirate_ship_path = paths[index]
 			var path_num
-			
-			# pirate_ship_path == "TopPath"
 			if(pirate_ship_path == $PiratePath/BottomLeftPath):
 				path_num = 0
-			elif(pirate_ship_path == $PiratePath/TopPath):
+			elif(pirate_ship_path == $PiratePath/TopPath1 or pirate_ship_path == $PiratePath/TopPath2):
 				path_num = 1
-				var rng = RandomNumberGenerator.new()
-				var random_path = rng.randi_range(0, 1)
-				var new_path
-				if (random_path == 0):
-					pirate_ship_path = $PiratePath/TopPath1
-				elif (random_path == 1):
-					pirate_ship_path = $PiratePath/TopPath2
-					
 			elif(pirate_ship_path == $PiratePath/BottomRightPath):
 				path_num = 2
 			
@@ -134,6 +123,8 @@ func spawn_enemies():
 			
 			#Delay before spawning next pirate
 		await get_tree().create_timer(0.4).timeout
+
+	
 	
 func start_wave():
 	#Check if all enemies are dead
