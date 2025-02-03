@@ -2,7 +2,7 @@ extends Area2D
 var screen_size
 @export var projectile: PackedScene
 var speed
-var shot_delay = 3
+var shot_delay = 5
 var to_floating = false
 var floating = false
 var direction

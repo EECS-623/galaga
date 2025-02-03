@@ -26,9 +26,5 @@ func enemy_defeated(enemy_type: String) -> void:
 func _on_player_hit() -> void:
 	update_hud()
 	if $Game/Player.lives <= 0:
-		show_game_over()
-
-# Change scene to game over.
-func show_game_over() -> void:
-	Global.final_score = score
-	get_tree().change_scene_to_file("res://scenes/game_over.tscn")
+		Global.final_score = score
+		get_tree().change_scene_to_file("res://scenes/game_over.tscn")
