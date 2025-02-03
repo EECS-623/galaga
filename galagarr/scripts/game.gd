@@ -97,7 +97,6 @@ func spawn_enemies():
 		for path in top_paths:
 			var pirate_ship_path = path
 			var pirate = pirate_ship.instantiate()
-			# need to fix this
 			if (path == $PiratePath/TopPath1):
 				pirate.path_num = 2
 			elif (path == $PiratePath/TopPath2):

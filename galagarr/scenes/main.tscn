@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://6ldh7nv2kvfj"]
+[gd_scene load_steps=12 format=3 uid="uid://6ldh7nv2kvfj"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_7dckw"]
 [ext_resource type="PackedScene" uid="uid://c5srvqbgbew67" path="res://scenes/hud.tscn" id="2_ss40p"]
@@ -12,6 +12,9 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ley07"]
 bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dfo4n"]
+bg_color = Color(0.765442, 0.374484, 0.177246, 1)
 
 [node name="Main" type="Node"]
 script = ExtResource("1_7dckw")
@@ -44,6 +47,16 @@ offset_right = -24.0
 offset_bottom = 66.0
 scale = Vector2(14.8227, 0.313159)
 theme_override_styles/fill = SubResource("StyleBoxFlat_ley07")
+value = 50.0
+show_percentage = false
+
+[node name="cooldownbarAlt" type="ProgressBar" parent="Game/Player"]
+offset_left = -28.0
+offset_top = 54.0
+offset_right = -24.0
+offset_bottom = 81.0
+scale = Vector2(14.8227, 0.313159)
+theme_override_styles/fill = SubResource("StyleBoxFlat_dfo4n")
 value = 50.0
 show_percentage = false
 

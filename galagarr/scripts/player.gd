@@ -4,7 +4,7 @@ signal hit
 @export var barrel: PackedScene = preload("res://scenes/barrel.tscn")
 @export var speed = 250 # How fast the player will move (pixels/sec)
 @onready var bar = $cooldownbar
-@onready var barAlt = $cooldownbar
+@onready var barAlt = $cooldownbarAlt
 
 var screen_size # size of the game window
 var sprite_size # size of the sprite
