@@ -93,8 +93,8 @@ func spawn_enemies():
 		await get_tree().create_timer(0.4).timeout
 		
 	var top_paths = [$PiratePath/TopPath1, $PiratePath/TopPath2]
-	for path in top_paths:
-		for x in range(2):
+	for x in range(2):
+		for path in top_paths:
 			var pirate_ship_path = path
 			var pirate = pirate_ship.instantiate()
 			# need to fix this
@@ -112,7 +112,7 @@ func spawn_enemies():
 			pirate.rotation -= PI / 2
 			path_follow.add_child(pirate)
 			#Delay before spawning next pirate
-			await get_tree().create_timer(0.4).timeout
+		await get_tree().create_timer(0.4).timeout
 	
 func start_wave():
 	#Check if all enemies are dead
