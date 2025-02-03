@@ -2,7 +2,7 @@ extends Area2D
 var screen_size
 @export var projectile: PackedScene
 var speed
-var shot_delay = 5
+var shot_delay = randf_range(2.5, 15)
 var to_floating = false
 var floating = false
 var direction
@@ -13,7 +13,7 @@ var path_num
 func _ready() -> void:
 	speed = 250 + 1.5 * (Global.wave - 1)
 	$ProjectileTimer.wait_time = shot_delay - .80 * (Global.wave - 1)
-	$ProjectileTimer.start
+	$ProjectileTimer.start()
 	add_to_group("pirate_ship")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -35,11 +35,15 @@ func _shoot_projectile():
 	game.add_child(new_projectile)
 
 func _on_projectile_timer_timeout() -> void:
+	print("reached timeout")
 	_shoot_projectile()
 	
-	await get_tree().create_timer(100).timeout
+	await get_tree().create_timer(0.4).timeout
 	
 	_shoot_projectile()
+	
+	$ProjectileTimer.wait_time = shot_delay - .80 * (Global.wave - 1)
+	$ProjectileTimer.start()
 
 func _move(delta: float):
 	var path_follower = get_parent()

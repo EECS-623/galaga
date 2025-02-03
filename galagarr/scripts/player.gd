@@ -21,7 +21,7 @@ var barAlt_speed = 0.1
 func _ready():
 	screen_size = get_viewport_rect().size
 	connect("area_entered", Callable(self, "_on_area_entered"))
-	
+	add_to_group("player")
 	# This is all code to prevent the ship from being half off the screen -Will
 	var sprite_node = $AnimatedSprite2D
 	if sprite_node and sprite_node.sprite_frames:
