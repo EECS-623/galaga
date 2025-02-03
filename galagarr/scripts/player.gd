@@ -14,7 +14,7 @@ var cooldown = false
 var progressAlt = 100
 var cooldownAlt = false
 
-var bar_speed = 6
+var bar_speed = 2.5
 var barAlt_speed = 0.1
 
 # Called when the node enters the scene tree for the first time.
