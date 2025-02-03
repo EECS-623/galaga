@@ -1,7 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dw3q5iaaeurun"]
+[gd_scene load_steps=3 format=3 uid="uid://dw3q5iaaeurun"]
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_yqxxi"]
-
+[ext_resource type="Script" path="res://scripts/lore.gd" id="2_n21xy"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -31,7 +31,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "GalagArr"
 
-[node name="Start" type="Button" parent="VBoxContainer"]
+[node name="Lore" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Start"
 
@@ -43,5 +43,25 @@ text = "Controls"
 layout_mode = 2
 text = "Quit"
 
-[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[node name="Lore" type="Window" parent="."]
+initial_position = 1
+size = Vector2i(750, 500)
+script = ExtResource("2_n21xy")
+
+[node name="Button" type="Button" parent="Lore"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -54.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
+text = "Start"
+vertical_icon_alignment = 0
+
+[connection signal="pressed" from="VBoxContainer/Lore" to="." method="_on_lore_pressed"]
 [connection signal="pressed" from="VBoxContainer/Controls" to="." method="_on_controls_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="close_requested" from="Lore" to="Lore" method="_on_close_requested"]
+[connection signal="pressed" from="Lore/Button" to="Lore" method="_on_start_pressed"]

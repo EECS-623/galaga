@@ -1,7 +1,7 @@
 extends Area2D
 signal hit
 @export var player_bullet: PackedScene
-@export var barrel: PackedScene
+@export var barrel: PackedScene = preload("res://scenes/barrel.tscn")
 @export var speed = 250 # How fast the player will move (pixels/sec)
 @onready var bar = $cooldownbar
 @onready var barAlt = $cooldownbar
@@ -93,7 +93,8 @@ func _on_area_entered(area: Area2D) -> void:
 func _unhandled_input(event):
 	if event.is_action_pressed("shoot"):
 		fire_cannon()
-	if event.is_action_pressed("altFire"):
+	if event.is_action_pressed("alt_fire"):
+		print("Firing Barrel Finally")
 		fireBarrel()		
 
 func fire_cannon():
@@ -109,7 +110,7 @@ func fireBarrel():
 	if not cooldownAlt:
 		var explosive = barrel.instantiate()
 		#POSITION OF BULLET SPAWN
-		explosive.position = global_position + Vector2(73,30) #for some reason have to offset by this weird number to get it to shoot from front. Might have to change if get a new image - Will
+		explosive.position = global_position + Vector2(73,30) 
 		cooldownAlt = true
 		progressAlt = 0
 		get_parent().add_child(explosive)		

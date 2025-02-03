@@ -6,17 +6,11 @@ extends Node2D
 func _ready() -> void:
 	Global.wave = 0
 	Global.enemies_left = 0
-	Global.start_enemies = 4
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	#print("Enemies Left: ")
 	#print(Global.enemies_left)
-	if Global.enemies_left == 0:
-		Global.start_enemies += 2
-		Global.wave += 1
-		Global.enemies_left = Global.start_enemies * 2
-		print("reached new wave")
 		start_wave()
 
 	
@@ -53,83 +47,65 @@ func _process(delta: float) -> void:
 	#
 func spawn_enemies():	
 	
-	#TODO Similar spawning for sharks on shark paths
-	var shark_paths = [$SharkPath/MiddlePath]
+	var shark_paths = [$SharkPath/MiddlePath, $SharkPath/LeftPath, $SharkPath/RightPath]
 	
 	# ratio for sharks spawning should be less than pirates
 	# sharks should be faster than pirates as well
-	for x in range(Global.start_enemies/2):
-		for shark_path in shark_paths:
-			var my_shark = shark.instantiate()
+	for shark_path in shark_paths:
+		var my_shark = shark.instantiate()
+		var path_follow = PathFollow2D.new()
+		shark_path.add_child(path_follow)
+		path_follow.position = shark_path.get_position()
+		path_follow.progress_ratio = 0
+		#shark ship rotate 
+		my_shark.rotation -= PI / 2
 
-			var path_follow = PathFollow2D.new()
-			
-			shark_path.add_child(path_follow)
-			
-			path_follow.position = shark_path.get_position()
-			
-			path_follow.progress_ratio = 0
-			
-			#shark ship rotate 
-			my_shark.rotation -= PI / 2
-
-			#print(path_follow.progress)
-			#print(path_follow.position)
-			#print(path_follow.global_position)
-			
-			#pirate = path_follow.position
-			
-			#pirate.global_position = 
-			#Vector2(randf_range(50.0, 1150.0), 120.0)
-			
-			path_follow.add_child(my_shark)
-			
-			#Delay before spawning next shark
-		await get_tree().create_timer(0.4).timeout
+		#print(path_follow.progress)
+		#print(path_follow.position)
+		#print(path_follow.global_position)
 		
-		#might be better to spawn one side at a time and then wait a bit before spawning the next side...
+		#pirate = path_follow.position
 		
-	#HERE YOU GO @ANDREW
-	var paths = [$PiratePath/BottomLeftPath, $PiratePath/TopPath, $PiratePath/BottomRightPath]
-	#var paths = [$PiratePath/BottomLeftPath]
+		#pirate.global_position = 
+		#Vector2(randf_range(50.0, 1150.0), 120.0)
+		
+		path_follow.add_child(my_shark)
+		
+		
+	var paths = [$PiratePath/BottomLeftPath, $PiratePath/BottomRightPath]
 
-	#I chose this order of loop so that the ships come in from all paths at once.
-	for x in range(Global.start_enemies/2):
-		for index in range(paths.size()):
-			
-			var pirate_ship_path = paths[index]
-			var path_num
-			
-			# pirate_ship_path == "TopPath"
-			if(pirate_ship_path == $PiratePath/BottomLeftPath):
-				path_num = 0
-			elif(pirate_ship_path == $PiratePath/TopPath):
-				path_num = 1
-				var rng = RandomNumberGenerator.new()
-				var random_path = rng.randi_range(0, 1)
-				var new_path
-				if (random_path == 0):
-					pirate_ship_path = $PiratePath/TopPath1
-				elif (random_path == 1):
-					pirate_ship_path = $PiratePath/TopPath2
-					
-			elif(pirate_ship_path == $PiratePath/BottomRightPath):
-				path_num = 2
-			
+	for x in range(4):
+		for path_num in range(2):
+			var pirate_ship_path = paths[path_num]
 			var pirate = pirate_ship.instantiate()
 			pirate.path_num = path_num
-		
 			var path_follow = PathFollow2D.new()
-			
 			pirate_ship_path.add_child(path_follow)
 			
 			path_follow.position = pirate_ship_path.get_position()
-			
 			path_follow.progress_ratio = 0
 			
 			#pirate ship rotate 
 			pirate.rotation -= PI / 2
+			path_follow.add_child(pirate)
 			
+			#Delay before spawning next pirate
+		await get_tree().create_timer(0.4).timeout
+		
+	var top_paths = [$PiratePath/TopPath1, $PiratePath/TopPath2]
+	for x in range(2):
+		for path in top_paths:
+			var pirate_ship_path = path
+			var pirate = pirate_ship.instantiate()
+			pirate.path_num = 2
+			var path_follow = PathFollow2D.new()
+			pirate_ship_path.add_child(path_follow)
+			
+			path_follow.position = pirate_ship_path.get_position()
+			path_follow.progress_ratio = 0
+			
+			#pirate ship rotate 
+			pirate.rotation -= PI / 2
 			path_follow.add_child(pirate)
 			
 			#Delay before spawning next pirate
@@ -137,13 +113,15 @@ func spawn_enemies():
 	
 func start_wave():
 	#Check if all enemies are dead
-	#if Global.enemies_left == 0:
+	if Global.enemies_left == 0:
 		#If they are, wait for 2 seconds
 		#DISPLAY LEVEL ICON HERE (use Global.wave)
-	print("wave number: ")
-	print(Global.wave)
-	await get_tree().create_timer(2).timeout 
+		print("reached new wave")
+		print("wave number: ")
+		print(Global.wave)
+		Global.enemies_left = 15
+		await get_tree().create_timer(2).timeout 
 
-	spawn_enemies()
+		spawn_enemies()
 	
 	

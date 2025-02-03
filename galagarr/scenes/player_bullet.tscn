@@ -3,7 +3,6 @@
 [ext_resource type="Script" path="res://scripts/player_bullet.gd" id="1_7b7ye"]
 [ext_resource type="Texture2D" uid="uid://b6xf8g754edl0" path="res://art/cannonball.jpg" id="2_m1605"]
 
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_byykg"]
 radius = 13.9284
 

@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://bb0kumldc2x4k" path="res://scenes/player_bullet.tscn" id="2_5b3p6"]
 [ext_resource type="Texture2D" uid="uid://b80sqoxkh3wg3" path="res://art/ship.jpg" id="2_oa4ag"]
 
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_h4gw3"]
 animations = [{
 "frames": [{

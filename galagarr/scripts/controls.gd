@@ -1,29 +1,32 @@
 extends Control
-var shoot_button
+var cannon_button
+var barrel_button
 var left_button
 var right_button
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	shoot_button = get_node("VBoxContainer/HBoxContainer/VBoxContainer2/Shoot")
+	cannon_button = get_node("VBoxContainer/VBoxContainer2/Cannon")
 	left_button = get_node("VBoxContainer/HBoxContainer/VBoxContainer/Left")
 	right_button = get_node("VBoxContainer/HBoxContainer/VBoxContainer3/Right")
-
+	barrel_button = get_node("VBoxContainer/VBoxContainer4/Barrel")
 	pass # Replace with function body.
 
 
 func _input(event):
-	if event is InputEventKey and event.pressed:
-		if event.keycode == KEY_SPACE:
-			shoot_button.grab_focus()
-		elif event.keycode == KEY_A or event.keycode == KEY_LEFT:
-			left_button.grab_focus()  # Triggers highlight effect
-		elif event.keycode == KEY_D or event.keycode == KEY_RIGHT:
-			right_button.grab_focus()  # Triggers highlight effect
+	if Input.is_action_pressed("shoot"):
+		cannon_button.grab_focus()
+	if Input.is_action_pressed("move_left"):
+		left_button.grab_focus() 
+	if Input.is_action_pressed("move_right"):
+		right_button.grab_focus()
+	if Input.is_action_pressed("alt_fire"):
+		barrel_button.grab_focus()
+
 
 
 
 
 
 func _on_quit_pressed() -> void:
-	get_tree().change_scene_to_file("res://menu.tscn")
+	get_tree().change_scene_to_file("res://scenes/menu.tscn")
