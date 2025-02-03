@@ -21,10 +21,15 @@ func enemy_defeated(enemy_type: String) -> void:
 	elif enemy_type == "shark":
 		score += 200
 	update_hud()
+	
 
 # Update HUD on player hit; if lives reach zero, show Game Over.
 func _on_player_hit() -> void:
 	update_hud()
 	if $Game/Player.lives <= 0:
 		Global.final_score = score
+		call_deferred("_change_scene")
+
+func _change_scene() -> void:
+	if is_inside_tree():
 		get_tree().change_scene_to_file("res://scenes/game_over.tscn")
