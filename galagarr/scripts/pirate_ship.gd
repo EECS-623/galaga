@@ -6,7 +6,7 @@ var shot_delay = 5
 var to_floating = false
 var floating = false
 var direction
-var path_name = ["TopLeftCircle", "TopRightCircle", "TopMiddleCircle"]
+var path_name = ["TopLeftCircle", "TopRightCircle", "TopMiddleCircle1", "TopMiddleCircle2"]
 var path_num
 
 # Called when the node enters the scene tree for the first time.

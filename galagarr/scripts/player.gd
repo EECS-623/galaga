@@ -69,26 +69,23 @@ func _process(delta: float):
 
 #3
 func _on_area_entered(area: Area2D) -> void:
-		
-	if area.is_in_group("pirate_cannonball"):
+	if area.is_in_group("enemies"):
+		$CollisionShape2D.set_deferred("disabled", true)
 		print("hit detected") 
 		if lives == 1:
 			lives = 0
 			hide()
+			hit.emit()
 		else:
 			lives -= 1
+			hit.emit()
+			for i in range(10):
+				$AnimatedSprite2D.hide()
+				await get_tree().create_timer(0.1).timeout
+				$AnimatedSprite2D.show()
+				await get_tree().create_timer(0.1).timeout
+		$CollisionShape2D.set_deferred("disabled", false)
 		print("Lives left: ", lives)
-		hit.emit()
-		
-	if area.is_in_group("shark"):
-		print("shark hit detected") 
-		if lives == 1:
-			lives = 0
-			hide()
-		else:
-			lives -= 1
-		print("Lives left: ", lives)
-		hit.emit()
 
 func _unhandled_input(event):
 	if event.is_action_pressed("shoot"):

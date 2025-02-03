@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dle8ke8aqnb8r"]
+[gd_scene load_steps=9 format=3 uid="uid://dle8ke8aqnb8r"]
 
 [sub_resource type="Curve2D" id="Curve2D_rgc5c"]
 _data = {
@@ -14,13 +14,13 @@ point_count = 6
 
 [sub_resource type="Curve2D" id="Curve2D_dhc5x"]
 _data = {
-"points": PackedVector2Array(0, -64.8118, 0, 64.8118, 512, 0, 0, 0, 0, 0, 576, 128)
+"points": PackedVector2Array(0, -64.8118, 0, 64.8118, 448, 0, 0, 0, 0, 0, 488, 128)
 }
 point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_xcyko"]
 _data = {
-"points": PackedVector2Array(0, -64.4414, 0, 64.4414, 768, 0, 0, 0, 0, 0, 704, 128)
+"points": PackedVector2Array(0, -64.4414, 0, 64.4414, 832, 0, 0, 0, 0, 0, 792, 128)
 }
 point_count = 2
 
@@ -30,9 +30,15 @@ _data = {
 }
 point_count = 5
 
+[sub_resource type="Curve2D" id="Curve2D_e2gwi"]
+_data = {
+"points": PackedVector2Array(-32.2458, 1.10242, 32.2458, -1.10242, 544, 192, 0, -23.7021, 0, 23.7021, 608, 224, 31.419, -0.551211, -31.419, 0.551211, 544, 256, 0, 23.1509, 0, -23.1509, 480, 224, -30.8678, -0.551211, 30.8678, 0.551211, 544, 192)
+}
+point_count = 5
+
 [sub_resource type="Curve2D" id="Curve2D_k5bf3"]
 _data = {
-"points": PackedVector2Array(64.0723, 0.66742, -64.0723, -0.66742, 640, 192, 0, -33.2586, 0, 33.2586, 512, 224, -63.4049, 0, 63.4049, 0, 640, 256, 0, 33.371, 0, -33.371, 768, 224, 64.7397, -0.66742, -64.7397, 0.66742, 640, 192)
+"points": PackedVector2Array(32.0599, 0.66742, -32.0599, -0.66742, 736, 191.819, 0.34608, -23.8881, -0.34608, 23.8881, 672, 223.909, -32.0847, 0.171092, 32.0847, -0.171092, 736, 255.999, 0.490194, 24.6007, -0.490194, -24.6007, 800, 223.909, 32.2082, -0.493893, -32.2082, 0.493893, 736, 191.819)
 }
 point_count = 5
 
@@ -67,11 +73,19 @@ curve = SubResource("Curve2D_jsadu")
 [node name="StartPoint" type="Marker2D" parent="TopLeftCircle"]
 position = Vector2(384, 160)
 
-[node name="TopMiddleCircle" type="Path2D" parent="."]
+[node name="TopMiddleCircle1" type="Path2D" parent="."]
+curve = SubResource("Curve2D_e2gwi")
+
+[node name="StartPoint" type="Marker2D" parent="TopMiddleCircle1"]
+position = Vector2(544, 192)
+
+[node name="TopMiddleCircle2" type="Path2D" parent="."]
+position = Vector2(0, 0.718933)
+scale = Vector2(1, 0.997194)
 curve = SubResource("Curve2D_k5bf3")
 
-[node name="StartPoint" type="Marker2D" parent="TopMiddleCircle"]
-position = Vector2(640, 192)
+[node name="StartPoint" type="Marker2D" parent="TopMiddleCircle2"]
+position = Vector2(736, 191.819)
 
 [node name="TopRightCircle" type="Path2D" parent="."]
 curve = SubResource("Curve2D_jjhsk")

@@ -10,6 +10,7 @@ func _ready() -> void:
 	var to_floating = false
 	var floating = false
 	add_to_group("shark")
+	add_to_group("enemies")
 	Global.above_water = 0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
