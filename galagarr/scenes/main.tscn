@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://6ldh7nv2kvfj"]
+[gd_scene load_steps=16 format=3 uid="uid://6ldh7nv2kvfj"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_7dckw"]
 [ext_resource type="PackedScene" uid="uid://c5srvqbgbew67" path="res://scenes/hud.tscn" id="2_ss40p"]
@@ -9,12 +9,29 @@
 [ext_resource type="PackedScene" uid="uid://cjbuyq0lxxi77" path="res://scenes/shark_path.tscn" id="7_ljcq0"]
 [ext_resource type="PackedScene" uid="uid://dle8ke8aqnb8r" path="res://scenes/pirate_path.tscn" id="8_3rght"]
 [ext_resource type="PackedScene" uid="uid://dvshqx1afu2e" path="res://scenes/player.tscn" id="9_3tlsu"]
+[ext_resource type="Texture2D" uid="uid://bxrku73j2xlmr" path="res://art/BG Animation 2.png" id="10_6yaan"]
+[ext_resource type="Texture2D" uid="uid://b2tw5wwt6dtsn" path="res://art/BG Animation 1.png" id="10_i3531"]
+[ext_resource type="Script" path="res://scripts/background.gd" id="12_cbvt1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ley07"]
 bg_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dfo4n"]
 bg_color = Color(0.765442, 0.374484, 0.177246, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5p8g8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_6yaan")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_i3531")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_7dckw")
@@ -59,5 +76,13 @@ scale = Vector2(14.8227, 0.313159)
 theme_override_styles/fill = SubResource("StyleBoxFlat_dfo4n")
 value = 50.0
 show_percentage = false
+
+[node name="Background" type="AnimatedSprite2D" parent="."]
+z_index = -1
+position = Vector2(641, 361)
+sprite_frames = SubResource("SpriteFrames_5p8g8")
+frame = 1
+frame_progress = 0.507537
+script = ExtResource("12_cbvt1")
 
 [connection signal="timeout" from="MobTimer" to="Game" method="_on_mob_timer_timeout"]
