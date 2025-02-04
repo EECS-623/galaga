@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b0c5mnkagdb4o"
+path="res://.godot/imported/Explosive Barrel Deploy.mp3-6ffd472eb66bf249f1899ecd5dc2eff6.mp3str"
+
+[deps]
+
+source_file="res://sound_effects/Explosive Barrel Deploy.mp3"
+dest_files=["res://.godot/imported/Explosive Barrel Deploy.mp3-6ffd472eb66bf249f1899ecd5dc2eff6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

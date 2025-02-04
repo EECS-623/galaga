@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bpy4sf0d888mx"
+path="res://.godot/imported/Barrel Explosion.mp3-5c6e4e8c14c1c7296bbb6f7fef441857.mp3str"
+
+[deps]
+
+source_file="res://sound_effects/Barrel Explosion.mp3"
+dest_files=["res://.godot/imported/Barrel Explosion.mp3-5c6e4e8c14c1c7296bbb6f7fef441857.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

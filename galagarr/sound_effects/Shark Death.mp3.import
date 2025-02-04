@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dgbjn2x471fpw"
+path="res://.godot/imported/Shark Death.mp3-9be22e4f5a43d3ac6a6ce3c7103f6c18.mp3str"
+
+[deps]
+
+source_file="res://sound_effects/Shark Death.mp3"
+dest_files=["res://.godot/imported/Shark Death.mp3-9be22e4f5a43d3ac6a6ce3c7103f6c18.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

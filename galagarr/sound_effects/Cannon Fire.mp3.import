@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cdctmma27e4lr"
+path="res://.godot/imported/Cannon Fire.mp3-9671dc988061ead4da3a7126b98803ea.mp3str"
+
+[deps]
+
+source_file="res://sound_effects/Cannon Fire.mp3"
+dest_files=["res://.godot/imported/Cannon Fire.mp3-9671dc988061ead4da3a7126b98803ea.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

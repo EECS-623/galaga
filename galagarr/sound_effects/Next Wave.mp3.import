@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cvosmqc2psqw1"
+path="res://.godot/imported/Next Wave.mp3-81ebd08d1b28c182dded0a4e129d8eb7.mp3str"
+
+[deps]
+
+source_file="res://sound_effects/Next Wave.mp3"
+dest_files=["res://.godot/imported/Next Wave.mp3-81ebd08d1b28c182dded0a4e129d8eb7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
