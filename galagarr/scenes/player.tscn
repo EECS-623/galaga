@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_0i8t0"]
 [ext_resource type="PackedScene" uid="uid://bb0kumldc2x4k" path="res://scenes/player_bullet.tscn" id="2_5b3p6"]
-[ext_resource type="Texture2D" uid="uid://b80sqoxkh3wg3" path="res://art/ship.jpg" id="2_oa4ag"]
+[ext_resource type="Texture2D" uid="uid://bllb73hsc67it" path="res://art/pixel ship.png" id="3_jewuc"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_h4gw3"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_oa4ag")
+"texture": ExtResource("3_jewuc")
 }],
 "loop": true,
 "name": &"ship",
@@ -16,23 +16,26 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xvuwb"]
-radius = 32.8863
-height = 76.3812
+radius = 39.1814
+height = 84.0841
 
 [node name="Player" type="Area2D"]
 position = Vector2(640, 620)
+scale = Vector2(0.729932, 0.779761)
 script = ExtResource("1_0i8t0")
 player_bullet = ExtResource("2_5b3p6")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+rotation = 1.56585
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_h4gw3")
 animation = &"ship"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -1)
-scale = Vector2(0.8, 0.942641)
+position = Vector2(5, -1)
+rotation = -0.00939937
+scale = Vector2(0.816484, 0.968857)
 shape = SubResource("CapsuleShape2D_xvuwb")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

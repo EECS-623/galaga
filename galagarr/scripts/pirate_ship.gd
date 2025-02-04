@@ -2,7 +2,7 @@ extends Area2D
 var screen_size
 @export var projectile: PackedScene
 var speed
-var shot_delay = randf_range(2.5, 15)
+var shot_delay = max(1, randf_range(5, 10) - .50 * (Global.wave - 1))
 var to_floating = false
 var floating = false
 var direction
@@ -11,8 +11,8 @@ var path_num
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	speed = 250 + 1.5 * (Global.wave - 1)
-	$ProjectileTimer.wait_time = shot_delay - .80 * (Global.wave - 1)
+	speed = 250 + 5 * (Global.wave - 1)
+	$ProjectileTimer.wait_time = shot_delay
 	$ProjectileTimer.start()
 	add_to_group("pirate_ship")
 
@@ -42,7 +42,7 @@ func _on_projectile_timer_timeout() -> void:
 	
 	_shoot_projectile()
 	
-	$ProjectileTimer.wait_time = shot_delay - .80 * (Global.wave - 1)
+	$ProjectileTimer.wait_time = shot_delay
 	$ProjectileTimer.start()
 
 func _move(delta: float):

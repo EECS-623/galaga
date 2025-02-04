@@ -98,7 +98,7 @@ func fire_cannon():
 	if not cooldown:
 		var bullet = player_bullet.instantiate()
 	#POSITION OF BULLET SPAWN
-		bullet.position = global_position + Vector2(-125,-110) #for some reason have to offset by this weird number to get it to shoot from front. Might have to change if get a new image - Will
+		bullet.position = global_position + Vector2(0,-10) #for some reason have to offset by this weird number to get it to shoot from front. Might have to change if get a new image - Will
 		cooldown = true
 		progress = 0
 		get_parent().add_child(bullet)

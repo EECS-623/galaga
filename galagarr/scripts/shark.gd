@@ -4,9 +4,10 @@ var speed
 var to_floating = false
 var floating = false
 var direction
+var above_water_y = 300
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	speed = 250 + 1.5 * (Global.wave - 1)
+	speed = 250 + 5 * (Global.wave - 1)
 	var to_floating = false
 	var floating = false
 	add_to_group("shark")
@@ -15,7 +16,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if global_position.y >= 200:
+	if global_position.y >= min(450, above_water_y+10*(Global.wave - 1)):
 		$Sprite2D.animation =  "shark_above_water"
 		Global.above_water = 1
 		#$Sprite2D.play("shark_below_water")
