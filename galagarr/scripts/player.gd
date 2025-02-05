@@ -102,6 +102,7 @@ func _unhandled_input(event):
 func fire_cannon():
 	if not cooldown:
 		var bullet = player_bullet.instantiate()
+		$PlayerShotAudio.play()
 	#POSITION OF BULLET SPAWN
 		bullet.position = global_position + Vector2(0,-10) #for some reason have to offset by this weird number to get it to shoot from front. Might have to change if get a new image - Will
 		cooldown = true
@@ -112,6 +113,7 @@ func fireBarrel():
 	if not cooldownAlt:
 		var explosive = barrel.instantiate()
 		#POSITION OF BULLET SPAWN
+		$DeployBarrelAudio.play()
 		explosive.position = global_position + Vector2(0,-10) 
 		cooldownAlt = true
 		progressAlt = 0

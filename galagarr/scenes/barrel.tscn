@@ -29,7 +29,10 @@ func _on_area_entered(area: Area2D) -> void:
 
 func perform_explosion() -> void:
 	print(\"boom\") 
-
+	
+	var sound = get_node(\"/root/Main/Game/Player/BarrelExplosion\")
+	sound.play()
+	
 	var boom = explosion.instantiate()
 	#POSITION OF BULLET SPAWN
 	boom.position = global_position + Vector2(0,00) #for some reason have to offset by this weird number to get it to shoot from front. Might have to change if get a new image - Will

@@ -7,7 +7,7 @@ var main
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	main = $"../../Main"
-	Global.wave = 1
+	Global.wave = 0
 	Global.enemies_left = 0
 	#start_wave()
 
