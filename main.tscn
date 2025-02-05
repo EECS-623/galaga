@@ -1,0 +1,99 @@
+[gd_scene load_steps=18 format=3 uid="uid://6ldh7nv2kvfj"]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_7dckw"]
+[ext_resource type="PackedScene" uid="uid://c5srvqbgbew67" path="res://scenes/hud.tscn" id="2_ss40p"]
+[ext_resource type="AudioStream" uid="uid://c32jmorevepd6" path="res://music/Galleygarr (Main Theme).wav" id="3_e2v31"]
+[ext_resource type="AudioStream" uid="uid://8jkx8rsdj5cl" path="res://sound_effects/Ambient Waves.mp3" id="4_51b44"]
+[ext_resource type="Script" path="res://scripts/game.gd" id="4_cly00"]
+[ext_resource type="PackedScene" uid="uid://1shmaegf7hpi" path="res://scenes/pirate_ship.tscn" id="5_onpuf"]
+[ext_resource type="PackedScene" uid="uid://bjq8mm863b4mi" path="res://scenes/shark.tscn" id="6_f70fe"]
+[ext_resource type="PackedScene" uid="uid://cjbuyq0lxxi77" path="res://scenes/shark_path.tscn" id="7_ljcq0"]
+[ext_resource type="PackedScene" uid="uid://dle8ke8aqnb8r" path="res://scenes/pirate_path.tscn" id="8_3rght"]
+[ext_resource type="PackedScene" uid="uid://dvshqx1afu2e" path="res://scenes/player.tscn" id="9_3tlsu"]
+[ext_resource type="Texture2D" uid="uid://bxrku73j2xlmr" path="res://art/BG Animation 2.png" id="10_6yaan"]
+[ext_resource type="Texture2D" uid="uid://b2tw5wwt6dtsn" path="res://art/BG Animation 1.png" id="10_i3531"]
+[ext_resource type="AudioStream" uid="uid://cvosmqc2psqw1" path="res://sound_effects/Next Wave.mp3" id="11_s16vs"]
+[ext_resource type="Script" path="res://scripts/background.gd" id="12_cbvt1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ley07"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dfo4n"]
+bg_color = Color(0.765442, 0.374484, 0.177246, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5p8g8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_6yaan")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_i3531")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_7dckw")
+
+[node name="HUD" parent="." instance=ExtResource("2_ss40p")]
+
+[node name="GalleyGarrTheme" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_e2v31")
+autoplay = true
+
+[node name="AmbientWavesAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_51b44")
+volume_db = -4.0
+autoplay = true
+
+[node name="MobTimer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="Game" type="Node2D" parent="."]
+script = ExtResource("4_cly00")
+pirate_ship = ExtResource("5_onpuf")
+shark = ExtResource("6_f70fe")
+
+[node name="SharkPath" parent="Game" instance=ExtResource("7_ljcq0")]
+
+[node name="PiratePath" parent="Game" instance=ExtResource("8_3rght")]
+
+[node name="Player" parent="Game" instance=ExtResource("9_3tlsu")]
+
+[node name="cooldownbar" type="ProgressBar" parent="Game/Player"]
+offset_left = -28.0
+offset_top = 39.0
+offset_right = -24.0
+offset_bottom = 66.0
+scale = Vector2(14.8227, 0.313159)
+theme_override_styles/fill = SubResource("StyleBoxFlat_ley07")
+value = 50.0
+show_percentage = false
+
+[node name="cooldownbarAlt" type="ProgressBar" parent="Game/Player"]
+offset_left = -28.0
+offset_top = 54.0
+offset_right = -24.0
+offset_bottom = 81.0
+scale = Vector2(14.8227, 0.313159)
+theme_override_styles/fill = SubResource("StyleBoxFlat_dfo4n")
+value = 50.0
+show_percentage = false
+
+[node name="WaveAudio" type="AudioStreamPlayer2D" parent="Game"]
+process_mode = 3
+stream = ExtResource("11_s16vs")
+
+[node name="Background" type="AnimatedSprite2D" parent="."]
+z_index = -1
+position = Vector2(641, 361)
+sprite_frames = SubResource("SpriteFrames_5p8g8")
+frame = 1
+frame_progress = 0.507537
+script = ExtResource("12_cbvt1")
+
+[connection signal="timeout" from="MobTimer" to="Game" method="_on_mob_timer_timeout"]
