@@ -29,8 +29,9 @@ func _on_player_hit() -> void:
 	update_hud()
 	if $Game/Player.lives <= 0:
 		Global.final_score = score
+		await get_tree().create_timer(4).timeout
 		call_deferred("_change_scene")
 
-func _change_scene() -> void:
+func _change_scene() -> void:	
 	if is_inside_tree():
 		get_tree().change_scene_to_file("res://scenes/game_over.tscn")

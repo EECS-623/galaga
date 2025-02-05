@@ -78,7 +78,6 @@ func _on_area_entered(area: Area2D) -> void:
 			# add player cannot move here with 
 			# maybe a sinking animation 
 			# change line below to be longer in case of sinking animation
-			await get_tree().create_timer(0.5).timeout
 			hide()
 			hit.emit()
 		else:
