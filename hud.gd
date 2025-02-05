@@ -14,3 +14,4 @@ func update_lives(lives: int) -> void:
 # Called from the main game script to update wave
 func update_wave(wave: int) -> void:
 	$WaveLabel.text = "Wave %d" % wave
+	$WaveTopRightLabel.text = "Wave %d" % wave
