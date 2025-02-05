@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dw3q5iaaeurun"]
+[gd_scene load_steps=4 format=3 uid="uid://dw3q5iaaeurun"]
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_yqxxi"]
+[ext_resource type="AudioStream" uid="uid://bul3paiw2mrjn" path="res://music/Galleygarr (Title Theme).wav" id="2_lnaof"]
 [ext_resource type="Script" path="res://scripts/lore.gd" id="2_n21xy"]
 
 [node name="Menu" type="Control"]
@@ -11,6 +12,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_yqxxi")
+
+[node name="TitleTheme" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_lnaof")
+autoplay = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1

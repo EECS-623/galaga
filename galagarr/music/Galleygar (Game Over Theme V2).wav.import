@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://usftwhcmbve3"
+path="res://.godot/imported/Galleygar (Game Over Theme V2).wav-de34fc29699aa0f924cc7feb61a5a452.sample"
+
+[deps]
+
+source_file="res://music/Galleygar (Game Over Theme V2).wav"
+dest_files=["res://.godot/imported/Galleygar (Game Over Theme V2).wav-de34fc29699aa0f924cc7feb61a5a452.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

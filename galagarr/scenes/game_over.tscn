@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bgpy5ovhtdrvx"]
+[gd_scene load_steps=3 format=3 uid="uid://bgpy5ovhtdrvx"]
 
 [ext_resource type="Script" path="res://scripts/game_over.gd" id="1_ixswl"]
+[ext_resource type="AudioStream" uid="uid://usftwhcmbve3" path="res://music/Galleygar (Game Over Theme V2).wav" id="2_ed3pr"]
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
@@ -59,6 +60,10 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 28
 text = "Final Score: 0"
 horizontal_alignment = 1
+
+[node name="GameOverTheme" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_ed3pr")
+autoplay = true
 
 [connection signal="pressed" from="VBoxContainer2/PlayAgain" to="." method="_on_play_again_pressed"]
 [connection signal="pressed" from="VBoxContainer2/MainMenu" to="." method="_on_main_menu_pressed"]

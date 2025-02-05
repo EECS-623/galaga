@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_7dckw"]
 [ext_resource type="PackedScene" uid="uid://c5srvqbgbew67" path="res://scenes/hud.tscn" id="2_ss40p"]
-[ext_resource type="AudioStream" uid="uid://c32jmorevepd6" path="res://music/Galleygarr (Main Theme).wav" id="3_e2v31"]
+[ext_resource type="AudioStream" uid="uid://c4ghlp2kdsuug" path="res://music/Galleygar (Main Theme) FINAL V1.wav" id="3_ucnvl"]
 [ext_resource type="AudioStream" uid="uid://8jkx8rsdj5cl" path="res://sound_effects/Ambient Waves.mp3" id="4_51b44"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="4_cly00"]
 [ext_resource type="PackedScene" uid="uid://1shmaegf7hpi" path="res://scenes/pirate_ship.tscn" id="5_onpuf"]
@@ -41,7 +41,7 @@ script = ExtResource("1_7dckw")
 [node name="HUD" parent="." instance=ExtResource("2_ss40p")]
 
 [node name="GalleyGarrTheme" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_e2v31")
+stream = ExtResource("3_ucnvl")
 autoplay = true
 
 [node name="AmbientWavesAudio" type="AudioStreamPlayer2D" parent="."]
