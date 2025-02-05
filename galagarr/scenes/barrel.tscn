@@ -1,8 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://daveeqia1862c"]
+[gd_scene load_steps=7 format=3 uid="uid://dk8tspnbr21pi"]
 
 [ext_resource type="Texture2D" uid="uid://cxkyenev3nlsb" path="res://art/Borrel.png" id="1_25ewp"]
 [ext_resource type="Texture2D" uid="uid://5shwafolq2wt" path="res://art/Barrel Underwater.png" id="2_deb6k"]
-[ext_resource type="PackedScene" uid="uid://nj1grwiqho3l" path="res://scenes/explosion.tscn" id="2_h15op"]
+[ext_resource type="PackedScene" uid="uid://d22f6503q6nbb" path="res://scenes/explosion.tscn" id="2_h15op"]
 
 [sub_resource type="GDScript" id="GDScript_cd4fe"]
 script/source = "extends Area2D
@@ -23,17 +23,19 @@ func _physics_process(delta):
 		
 func _on_area_entered(area: Area2D) -> void:
 	print(\"test1\") 
-
 	if area.is_in_group(\"explosionTrigger\"):
-		print(\"boom\") 
-	
-		var boom = explosion.instantiate()
-		#POSITION OF BULLET SPAWN
-		boom.position = global_position + Vector2(0,00) #for some reason have to offset by this weird number to get it to shoot from front. Might have to change if get a new image - Will
-		get_parent().add_child(boom)
-	
-		hide()
-		queue_free()
+		call_deferred(\"perform_explosion\")
+
+func perform_explosion() -> void:
+	print(\"boom\") 
+
+	var boom = explosion.instantiate()
+	#POSITION OF BULLET SPAWN
+	boom.position = global_position + Vector2(0,00) #for some reason have to offset by this weird number to get it to shoot from front. Might have to change if get a new image - Will
+	get_parent().add_child(boom)
+
+	hide()
+	queue_free()
 "
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pcj6j"]
