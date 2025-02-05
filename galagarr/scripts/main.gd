@@ -17,12 +17,12 @@ func update_hud() -> void:
 
 # Called when a pirate ship or shark is defeated.
 func enemy_defeated(enemy_type: String) -> void:
+	var multiplier = 1.0 + Global.wave * 0.2
 	if enemy_type == "pirate":
-		score += 100
+		score += int(100 * multiplier)
 	elif enemy_type == "shark":
-		score += 200
+		score += int(200 * multiplier)
 	update_hud()
-	
 
 # Update HUD on player hit; if lives reach zero, show Game Over.
 func _on_player_hit() -> void:
