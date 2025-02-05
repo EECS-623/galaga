@@ -15,3 +15,10 @@ func update_lives(lives: int) -> void:
 func update_wave(wave: int) -> void:
 	$WaveLabel.text = "Wave %d" % wave
 	$WaveTopRightLabel.text = "Wave %d" % wave
+	
+func _process(delta: float) -> void:
+	if(Global.wave_start == true):
+		update_wave(Global.wave)
+		$WaveLabel.show()
+	else:
+		$WaveLabel.hide()

@@ -39,7 +39,6 @@ func _shoot_projectile():
 	$PirateShotAudio.play()
 
 func _on_projectile_timer_timeout() -> void:
-	print("reached timeout")
 	_shoot_projectile()
 	
 	await get_tree().create_timer(0.4).timeout

@@ -33,6 +33,7 @@ rotation = 1.56585
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_h4gw3")
 animation = &"ship"
+frame_progress = 0.554734
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(5, -1)
