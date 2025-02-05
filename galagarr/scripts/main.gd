@@ -13,6 +13,7 @@ func update_hud() -> void:
 	var player = $Game/Player
 	hud.update_score(score)
 	hud.update_lives(player.lives)
+	hud.update_wave(Global.wave)
 
 # Called when a pirate ship or shark is defeated.
 func enemy_defeated(enemy_type: String) -> void:

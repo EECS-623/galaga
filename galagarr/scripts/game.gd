@@ -93,6 +93,8 @@ func spawn_enemies():
 		await get_tree().create_timer(0.4).timeout
 		
 	var top_paths = [$PiratePath/TopPath1, $PiratePath/TopPath2]
+	# weird visual bug here in spawning more objects than 
+	# are actually spawned...
 	for x in range(2):
 		for path in top_paths:
 			var pirate_ship_path = path
@@ -120,6 +122,7 @@ func start_wave():
 		#DISPLAY LEVEL ICON HERE (use Global.wave)
 		print("reached new wave")
 		print("wave number: ")
+		Global.wave += 1
 		get_tree().paused = true
 		$WaveAudio.play()
 		await get_tree().create_timer(1.5).timeout
