@@ -8,9 +8,8 @@ var main
 func _ready() -> void:
 	main = $"../../Main"
 	Global.wave = 1
-	Global.enemies_left = 15
-	start_wave()
-
+	Global.enemies_left = 0
+	#start_wave()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -85,9 +84,15 @@ func spawn_enemies():
 	
 func start_wave():
 	Global.wave_start = true
+
+	$"../GalleyGarrTheme".stream_paused = true;
+	$"../AmbientWavesAudio".stream_paused = true;
 	$WaveAudio.play()
 	await get_tree().create_timer(1.5).timeout
+	
 	Global.wave_start = false
+	$"../GalleyGarrTheme".stream_paused = false;
+	$"../AmbientWavesAudio".stream_paused = false;
 	await get_tree().create_timer(2).timeout
 	spawn_enemies()
 	
