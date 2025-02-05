@@ -10,8 +10,8 @@
 size = Vector2(22, 60)
 
 [node name="PirateShip" type="Area2D"]
-collision_layer = 8
-collision_mask = 4
+collision_layer = 13
+collision_mask = 13
 script = ExtResource("1_b5kj2")
 projectile = ExtResource("2_3vx8l")
 metadata/_edit_group_ = true

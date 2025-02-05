@@ -21,6 +21,8 @@ radius = 39.1814
 height = 84.0841
 
 [node name="Player" type="Area2D"]
+light_mask = 13
+visibility_layer = 13
 position = Vector2(640, 620)
 scale = Vector2(0.729932, 0.779761)
 script = ExtResource("1_0i8t0")
