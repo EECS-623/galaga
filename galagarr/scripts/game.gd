@@ -11,9 +11,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	#print("Enemies Left: ")
 	#print(Global.enemies_left)
-		start_wave()
-
-	
+	start_wave()
 	
 
 # When the mob timer times out, spawn a child instance of pirate ship
@@ -116,6 +114,7 @@ func spawn_enemies():
 		await get_tree().create_timer(0.4).timeout
 	
 func start_wave():
+	#print("wave start called")
 	#Check if all enemies are dead
 	if Global.enemies_left == 0:
 		#If they are, wait for 2 seconds
