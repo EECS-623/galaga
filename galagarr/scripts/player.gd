@@ -1,6 +1,6 @@
 extends Area2D
 signal hit
-@export var player_bullet: PackedScene
+@export var player_bullet: PackedScene = preload("res://scenes/player_bullet.tscn")
 @export var barrel: PackedScene = preload("res://scenes/barrel.tscn")
 @export var speed = 250 # How fast the player will move (pixels/sec)
 @onready var bar = $cooldownbar
@@ -74,9 +74,15 @@ func _on_area_entered(area: Area2D) -> void:
 		print("hit detected") 
 		if lives == 1:
 			lives = 0
+			$PlayerDeathAudio.play()
+			# add player cannot move here with 
+			# maybe a sinking animation 
+			# change line below to be longer in case of sinking animation
+			await get_tree().create_timer(0.5).timeout
 			hide()
 			hit.emit()
 		else:
+			$PlayerHitAudio.play()
 			lives -= 1
 			hit.emit()
 			for i in range(10):

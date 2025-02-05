@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://6ldh7nv2kvfj"]
+[gd_scene load_steps=18 format=3 uid="uid://6ldh7nv2kvfj"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_7dckw"]
 [ext_resource type="PackedScene" uid="uid://c5srvqbgbew67" path="res://scenes/hud.tscn" id="2_ss40p"]
 [ext_resource type="AudioStream" uid="uid://c32jmorevepd6" path="res://music/Galleygarr (Main Theme).wav" id="3_e2v31"]
+[ext_resource type="AudioStream" uid="uid://8jkx8rsdj5cl" path="res://sound_effects/Ambient Waves.mp3" id="4_51b44"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="4_cly00"]
 [ext_resource type="PackedScene" uid="uid://1shmaegf7hpi" path="res://scenes/pirate_ship.tscn" id="5_onpuf"]
 [ext_resource type="PackedScene" uid="uid://bjq8mm863b4mi" path="res://scenes/shark.tscn" id="6_f70fe"]
@@ -11,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dvshqx1afu2e" path="res://scenes/player.tscn" id="9_3tlsu"]
 [ext_resource type="Texture2D" uid="uid://bxrku73j2xlmr" path="res://art/BG Animation 2.png" id="10_6yaan"]
 [ext_resource type="Texture2D" uid="uid://b2tw5wwt6dtsn" path="res://art/BG Animation 1.png" id="10_i3531"]
+[ext_resource type="AudioStream" uid="uid://cvosmqc2psqw1" path="res://sound_effects/Next Wave.mp3" id="11_s16vs"]
 [ext_resource type="Script" path="res://scripts/background.gd" id="12_cbvt1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ley07"]
@@ -38,8 +40,13 @@ script = ExtResource("1_7dckw")
 
 [node name="HUD" parent="." instance=ExtResource("2_ss40p")]
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="GalleyGarrTheme" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_e2v31")
+autoplay = true
+
+[node name="AmbientWavesAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_51b44")
+volume_db = -5.0
 autoplay = true
 
 [node name="MobTimer" type="Timer" parent="."]
@@ -76,6 +83,10 @@ scale = Vector2(14.8227, 0.313159)
 theme_override_styles/fill = SubResource("StyleBoxFlat_dfo4n")
 value = 50.0
 show_percentage = false
+
+[node name="WaveAudio" type="AudioStreamPlayer2D" parent="Game"]
+process_mode = 3
+stream = ExtResource("11_s16vs")
 
 [node name="Background" type="AnimatedSprite2D" parent="."]
 z_index = -1

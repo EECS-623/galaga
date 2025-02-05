@@ -26,6 +26,7 @@ func _process(delta: float) -> void:
 		_move(delta)
 
 func _shoot_projectile():
+	#var shoot_sound = $PirateShotAudio
 	var new_projectile = projectile.instantiate()
 	
 	var game = $/root/Main/Game
@@ -33,6 +34,7 @@ func _shoot_projectile():
 	new_projectile.global_position = get_global_position()
 	
 	game.add_child(new_projectile)
+	$PirateShotAudio.play()
 
 func _on_projectile_timer_timeout() -> void:
 	print("reached timeout")
@@ -95,13 +97,21 @@ func _move_to_path(delta: float):
 		floating = true
 
 func _on_area_entered(area: Area2D) -> void:
-	Global.enemies_left -= 1
-	print("pirate_hit")
-	var main = get_tree().get_root().get_node("Main")
-	if main:
-		main.enemy_defeated("pirate")
-	queue_free()
-	area.queue_free()
+	if (area.is_in_group("player_bullet")):
+		var hit_sound = AudioStreamPlayer2D.new()
+		hit_sound.stream = $PirateHitAudio.stream
+		hit_sound.volume_db = $PirateHitAudio.volume_db
+		get_parent().add_child(hit_sound)
+		hit_sound.play()
+		Global.enemies_left -= 1
+		print("pirate_hit")
+		var main = get_tree().get_root().get_node("Main")
+		if main:
+			main.enemy_defeated("pirate")
+		queue_free()
+		area.queue_free()
+		await get_tree().create_timer(0.2).timeout
+		hit_sound.queue_free()
 	
 # Called when a cannon_ball hits the pirateship
 #func _on_body_entered(area: Area2D) -> void:

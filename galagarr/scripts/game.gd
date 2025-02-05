@@ -120,6 +120,10 @@ func start_wave():
 		#DISPLAY LEVEL ICON HERE (use Global.wave)
 		print("reached new wave")
 		print("wave number: ")
+		get_tree().paused = true
+		$WaveAudio.play()
+		await get_tree().create_timer(1.5).timeout
+		get_tree().paused = false
 		print(Global.wave)
 		Global.enemies_left = 15
 		await get_tree().create_timer(2).timeout 

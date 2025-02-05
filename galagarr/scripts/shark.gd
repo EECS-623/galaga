@@ -84,6 +84,11 @@ func _move(delta: float):
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player_bullet") and Global.above_water == 1:
+		var hit_sound = AudioStreamPlayer2D.new()
+		hit_sound.stream = $SharkHitAudio.stream
+		hit_sound.volume_db = $SharkHitAudio.volume_db
+		get_parent().add_child(hit_sound)
+		hit_sound.play()
 		Global.enemies_left -= 1
 		print("shark_hit")
 		var main = get_tree().get_root().get_node("Main")
@@ -91,3 +96,5 @@ func _on_area_entered(area: Area2D) -> void:
 			main.enemy_defeated("shark")
 		queue_free()
 		area.queue_free()
+		await get_tree().create_timer(0.5).timeout
+		hit_sound.queue_free()
