@@ -15,6 +15,8 @@ func _ready() -> void:
 	$ProjectileTimer.wait_time = shot_delay
 	$ProjectileTimer.start()
 	add_to_group("pirate_ship")
+	add_to_group("explosionTrigger")
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

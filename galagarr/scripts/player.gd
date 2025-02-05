@@ -108,16 +108,16 @@ func fire_cannon():
 		cooldown = true
 		progress = 0
 		get_parent().add_child(bullet)
-
+		
 func fireBarrel():
 	if not cooldownAlt:
 		var explosive = barrel.instantiate()
 		#POSITION OF BULLET SPAWN
-		explosive.position = global_position + Vector2(73,30) 
+		explosive.position = global_position + Vector2(0,-10) 
 		cooldownAlt = true
 		progressAlt = 0
 		get_parent().add_child(explosive)		
-
+		
 func start(pos: Vector2):
 	position = pos
 	show()
