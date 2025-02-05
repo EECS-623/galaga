@@ -2,18 +2,22 @@ extends Node2D
 @export var pirate_ship: PackedScene
 @export var shark: PackedScene
 
+var wave_active: bool = false
+var first_wave: bool = true
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	Global.wave = 0
 	Global.enemies_left = 0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	#print("Enemies Left: ")
-	#print(Global.enemies_left)
+	print(Global.enemies_left)
+	if Global.enemies_left == 0:
+		wave_active = false
+	if wave_active == false:
 		start_wave()
-
-	
+		wave_active = true
 	
 
 # When the mob timer times out, spawn a child instance of pirate ship
@@ -116,13 +120,17 @@ func spawn_enemies():
 		await get_tree().create_timer(0.4).timeout
 	
 func start_wave():
+	print("wave start called")
 	#Check if all enemies are dead
 	if Global.enemies_left == 0:
 		#If they are, wait for 2 seconds
 		#DISPLAY LEVEL ICON HERE (use Global.wave)
 		print("reached new wave")
 		print("wave number: ")
-		Global.wave += 1
+		if first_wave:
+			first_wave = false
+		else:
+			Global.wave += 1
 		get_tree().paused = true
 		$WaveAudio.play()
 		await get_tree().create_timer(1.5).timeout
