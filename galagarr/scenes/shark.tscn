@@ -29,7 +29,8 @@ radius = 14.2857
 height = 41.8367
 
 [node name="Shark" type="Area2D"]
-position = Vector2(47, 43)
+position = Vector2(27, 24)
+scale = Vector2(0.586227, 0.56946)
 script = ExtResource("1_15erg")
 metadata/_edit_group_ = true
 

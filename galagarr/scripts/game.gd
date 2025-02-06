@@ -21,7 +21,6 @@ func _process(delta: float) -> void:
 		start_wave()
 	
 func spawn_enemies():	
-	
 	var shark_paths = [$SharkPath/MiddlePath, $SharkPath/LeftPath, $SharkPath/RightPath]
 	
 	# ratio for sharks spawning should be less than pirates
@@ -55,7 +54,7 @@ func spawn_enemies():
 			pirate.rotation -= PI / 2
 			path_follow.add_child(pirate)
 			
-			#Delay before spawning next pirate
+			#Delay before spawning ext pirate
 		await get_tree().create_timer(0.4).timeout
 		
 	var top_paths = [$PiratePath/TopPath1, $PiratePath/TopPath2]
@@ -87,6 +86,7 @@ func start_wave():
 
 	$"../GalleyGarrTheme".stream_paused = true;
 	$"../AmbientWavesAudio".stream_paused = true;
+	print("Playing wave audio")
 	$WaveAudio.play()
 	await get_tree().create_timer(1.5).timeout
 	

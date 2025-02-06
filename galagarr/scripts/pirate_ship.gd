@@ -11,6 +11,7 @@ var path_num
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$AnimatedSprite2D.play()
 	speed = 250 + 5 * (Global.wave - 1)
 	$ProjectileTimer.wait_time = shot_delay
 	$ProjectileTimer.start()
@@ -113,12 +114,3 @@ func _on_area_entered(area: Area2D) -> void:
 		area.queue_free()
 		await get_tree().create_timer(0.2).timeout
 		hit_sound.queue_free()
-	
-# Called when a cannon_ball hits the pirateship
-#func _on_body_entered(area: Area2D) -> void:
-	#print("pirate_hit")
-	#if area.is_in_group("player_bullet"):
-		#print("pirate hit")
-		#var path = get_parent()
-		#path.queue_free()
-		#queue_free()
