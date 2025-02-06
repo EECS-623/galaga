@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c7ndr6h3dotdd" path="res://art/Button controls.png" id="5_risxw"]
 [ext_resource type="Texture2D" uid="uid://nv4ghmhcjcax" path="res://art/Button quit.png" id="6_yqt8m"]
 [ext_resource type="Texture2D" uid="uid://djnljwg3n5nxl" path="res://art/Title.png" id="8_adpr5"]
-[ext_resource type="Texture2D" uid="uid://d0wijsvdsd7eu" path="res://art/Textbox with Text Button Normal.png" id="8_e72x1"]
+[ext_resource type="Texture2D" uid="uid://no7e5me4ghh4" path="res://art/Textbox with text.png" id="8_jh7cl"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7qwm1"]
 
@@ -88,7 +88,7 @@ offset_bottom = 110.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.74, 0.74)
-texture = ExtResource("8_e72x1")
+texture = ExtResource("8_jh7cl")
 
 [node name="Button" type="Button" parent="Lore"]
 anchors_preset = -1

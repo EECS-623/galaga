@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://coxwmi3vc5jjn"
-path="res://.godot/imported/heart.png-d360d4cc98667652a308f99b846b988b.ctex"
+uid="uid://no7e5me4ghh4"
+path="res://.godot/imported/Textbox with text.png-dc11319d6d7f992c667cbd2cce60c6b6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/heart.png"
-dest_files=["res://.godot/imported/heart.png-d360d4cc98667652a308f99b846b988b.ctex"]
+source_file="res://art/Textbox with text.png"
+dest_files=["res://.godot/imported/Textbox with text.png-dc11319d6d7f992c667cbd2cce60c6b6.ctex"]
 
 [params]
 
