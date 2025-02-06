@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://c5srvqbgbew67"]
+[gd_scene load_steps=7 format=3 uid="uid://c5srvqbgbew67"]
 
 [ext_resource type="Script" path="res://scripts/hud.gd" id="1_yqm5l"]
 [ext_resource type="Texture2D" uid="uid://lddbpkmtw4bw" path="res://art/1 Heart.png" id="2_3bnyy"]
 [ext_resource type="Texture2D" uid="uid://cfujfv7hcxpi4" path="res://art/0 Hearts.png" id="2_7futb"]
 [ext_resource type="Texture2D" uid="uid://biu1mvh440n7h" path="res://art/2 Hearts.png" id="3_s1khe"]
 [ext_resource type="Texture2D" uid="uid://ci57ofgoh68e6" path="res://art/3 Hearts.png" id="4_dffm7"]
+[ext_resource type="FontFile" uid="uid://dsu3xhfnm3vp4" path="res://font/alagard.ttf" id="6_idn4k"]
 
 [node name="HUD" type="CanvasLayer"]
 
@@ -70,16 +71,18 @@ offset_left = 30.0
 offset_top = 22.0
 offset_right = 627.0
 offset_bottom = 68.0
-theme_override_font_sizes/font_size = 30
+theme_override_fonts/font = ExtResource("6_idn4k")
+theme_override_font_sizes/font_size = 35
 text = "Score: 0"
 
 [node name="WaveTopRightLabel" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = 1104.0
+offset_left = 1112.0
 offset_top = 22.0
-offset_right = 1257.0
+offset_right = 1272.0
 offset_bottom = 68.0
-theme_override_font_sizes/font_size = 30
+theme_override_fonts/font = ExtResource("6_idn4k")
+theme_override_font_sizes/font_size = 35
 text = "Wave: 0"
 
 [node name="WaveLabel" type="Label" parent="Control"]
@@ -89,5 +92,6 @@ offset_left = 576.0
 offset_top = 288.0
 offset_right = 776.0
 offset_bottom = 352.0
-theme_override_font_sizes/font_size = 30
+theme_override_fonts/font = ExtResource("6_idn4k")
+theme_override_font_sizes/font_size = 40
 vertical_alignment = 1
