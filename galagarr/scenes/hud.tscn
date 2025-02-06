@@ -15,21 +15,27 @@ offset_right = 1282.0
 offset_bottom = 722.0
 script = ExtResource("1_yqm5l")
 
+[node name="LifeEmpty" type="Control" parent="Control"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Life0" type="TextureRect" parent="Control/LifeEmpty"]
+layout_mode = 1
+offset_left = 24.0
+offset_top = 648.0
+offset_right = 152.0
+offset_bottom = 712.0
+texture = ExtResource("2_7futb")
+expand_mode = 2
+
 [node name="LifeCounter" type="Control" parent="Control"]
 layout_mode = 1
+anchors_preset = 0
 offset_left = 32.0
 offset_top = 624.0
 offset_right = 160.0
 offset_bottom = 688.0
-
-[node name="Life0" type="TextureRect" parent="Control/LifeCounter"]
-layout_mode = 1
-offset_left = -8.0
-offset_top = 24.0
-offset_right = 120.0
-offset_bottom = 88.0
-texture = ExtResource("2_7futb")
-expand_mode = 2
 
 [node name="Life1" type="TextureRect" parent="Control/LifeCounter"]
 layout_mode = 1
