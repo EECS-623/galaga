@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bgpy5ovhtdrvx"]
 
 [ext_resource type="Script" path="res://scripts/game_over.gd" id="1_ixswl"]
-[ext_resource type="Texture2D" uid="uid://d203ui5eonh8r" path="res://art/final title screen.png" id="2_g6j86"]
+[ext_resource type="Texture2D" uid="uid://b1wk2634lbcn1" path="res://art/Game Over Screen.png" id="2_1dpih"]
 [ext_resource type="Texture2D" uid="uid://b3clo686hnn4f" path="res://art/Game Over Title Black.png" id="3_hoioa"]
 [ext_resource type="Texture2D" uid="uid://csm8kvowbqk4w" path="res://art/Button try again.png" id="4_3nuva"]
 [ext_resource type="Texture2D" uid="uid://nv4ghmhcjcax" path="res://art/Button quit.png" id="5_6jqxy"]
@@ -18,7 +18,7 @@ script = ExtResource("1_ixswl")
 layout_mode = 0
 offset_right = 1277.0
 offset_bottom = 720.0
-texture = ExtResource("2_g6j86")
+texture = ExtResource("2_1dpih")
 expand_mode = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
