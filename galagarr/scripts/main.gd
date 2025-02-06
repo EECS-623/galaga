@@ -18,9 +18,9 @@ func update_hud() -> void:
 # Called when a pirate ship or shark is defeated.
 func enemy_defeated(enemy_type: String) -> void:
 	if enemy_type == "pirate":
-		score += 100
+		score += 100 + 10*(Global.wave - 1)
 	elif enemy_type == "shark":
-		score += 200
+		score += 200 + 20*(Global.wave - 1)
 	update_hud()
 	
 
@@ -29,7 +29,12 @@ func _on_player_hit() -> void:
 	update_hud()
 	if $Game/Player.lives <= 0:
 		Global.final_score = score
-		await get_tree().create_timer(4).timeout
+		for enemy in get_tree().get_nodes_in_group("pirate_ship"):
+			enemy.get_node("ProjectileTimer").stop()
+			$GalleyGarrTheme.stop()
+		await $Game/Player/PlayerDeathAudio.finished
+		$"WAA-WAAAAA".play()
+		await get_tree().create_timer(2.5).timeout
 		call_deferred("_change_scene")
 
 func _change_scene() -> void:	

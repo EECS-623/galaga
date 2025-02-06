@@ -7,7 +7,6 @@ var direction
 func _ready() -> void:
 	_direction()
 	set_monitoring(true)
-	add_to_group("explosionTrigger")	
 	add_to_group("pirate_cannonball")
 	add_to_group("enemies")
 

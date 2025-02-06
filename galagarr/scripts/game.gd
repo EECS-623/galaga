@@ -31,7 +31,7 @@ func spawn_enemies():
 		shark_path.add_child(path_follow)
 		path_follow.position = shark_path.get_position()
 		path_follow.progress_ratio = 0
-		#shark ship rotate 
+		#shark rotate 
 		my_shark.rotation -= PI / 2
 		
 		path_follow.add_child(my_shark)
@@ -54,24 +54,23 @@ func spawn_enemies():
 			pirate.rotation -= PI / 2
 			path_follow.add_child(pirate)
 			
-			#Delay before spawning ext pirate
+			#Delay before spawning next pirate
 		await get_tree().create_timer(0.4).timeout
 		
 	var top_paths = [$PiratePath/TopPath1, $PiratePath/TopPath2]
-	# weird visual bug here in spawning more objects than 
-	# are actually spawned...
+
 	for x in range(2):
 		for path in top_paths:
-			var pirate_ship_path = path
 			var pirate = pirate_ship.instantiate()
+			
 			if (path == $PiratePath/TopPath1):
 				pirate.path_num = 2
 			elif (path == $PiratePath/TopPath2):
 				pirate.path_num = 3
 			var path_follow = PathFollow2D.new()
-			pirate_ship_path.add_child(path_follow)
+			path.add_child(path_follow)
 			
-			path_follow.position = pirate_ship_path.get_position()
+			path_follow.position = path.get_position()
 			path_follow.progress_ratio = 0
 			
 			#pirate ship rotate 

@@ -1,13 +1,27 @@
-[gd_scene load_steps=7 format=3 uid="uid://1shmaegf7hpi"]
+[gd_scene load_steps=9 format=3 uid="uid://1shmaegf7hpi"]
 
 [ext_resource type="Script" path="res://scripts/pirate_ship.gd" id="1_b5kj2"]
-[ext_resource type="Texture2D" uid="uid://bkwypiromucbq" path="res://art/pirateship.png" id="1_fq6cu"]
 [ext_resource type="PackedScene" uid="uid://08gpb37be8u2" path="res://scenes/pirate_cannonball.tscn" id="2_3vx8l"]
 [ext_resource type="AudioStream" uid="uid://bvfr7cujpaexu" path="res://sound_effects/Enemy Hit.mp3" id="4_7t31b"]
+[ext_resource type="Texture2D" uid="uid://bnp5jikd4g55f" path="res://art/pixel ship enemy one.png" id="4_oy2tb"]
+[ext_resource type="Texture2D" uid="uid://dveblrf7s8gtk" path="res://art/pixel ship enemy 2.png" id="5_fq4m5"]
 [ext_resource type="AudioStream" uid="uid://cdctmma27e4lr" path="res://sound_effects/Cannon Fire.mp3" id="5_i1d33"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pprvu"]
-size = Vector2(22, 60)
+[sub_resource type="SpriteFrames" id="SpriteFrames_t15w2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_oy2tb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_fq4m5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wtx8b"]
 
 [node name="PirateShip" type="Area2D"]
 collision_layer = 13
@@ -16,12 +30,16 @@ script = ExtResource("1_b5kj2")
 projectile = ExtResource("2_3vx8l")
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.105469, 0.1)
-texture = ExtResource("1_fq6cu")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(2, 0.999985)
+rotation = -1.57216
+scale = Vector2(0.104433, 0.0955448)
+sprite_frames = SubResource("SpriteFrames_t15w2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_pprvu")
+position = Vector2(0, 3)
+scale = Vector2(1.18725, 1.33574)
+shape = SubResource("CapsuleShape2D_wtx8b")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
@@ -35,8 +53,6 @@ volume_db = -1.0
 [node name="PirateShotAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_i1d33")
 volume_db = -15.0
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="timeout" from="ProjectileTimer" to="." method="_on_projectile_timer_timeout"]

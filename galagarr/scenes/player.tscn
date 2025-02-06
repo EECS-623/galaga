@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://dvshqx1afu2e"]
+[gd_scene load_steps=11 format=3 uid="uid://dvshqx1afu2e"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_0i8t0"]
-[ext_resource type="Texture2D" uid="uid://bllb73hsc67it" path="res://art/pixel ship.png" id="3_jewuc"]
+[ext_resource type="Texture2D" uid="uid://dyxrg78q1y4sv" path="res://art/Player Ship Animation 1.png" id="2_syeao"]
 [ext_resource type="AudioStream" uid="uid://sgxmnjnxcifi" path="res://sound_effects/Player Hit.mp3" id="3_mo8v0"]
+[ext_resource type="Texture2D" uid="uid://bym0nnpngeqpx" path="res://art/Player Ship Animation 2.png" id="3_rwcye"]
 [ext_resource type="AudioStream" uid="uid://gcxk08d8hxcn" path="res://sound_effects/Player Death.mp3" id="4_hfmpo"]
 [ext_resource type="AudioStream" uid="uid://b0c5mnkagdb4o" path="res://sound_effects/Explosive Barrel Deploy.mp3" id="5_ihd02"]
 [ext_resource type="AudioStream" uid="uid://cdctmma27e4lr" path="res://sound_effects/Cannon Fire.mp3" id="6_6ctbj"]
@@ -12,7 +13,10 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_jewuc")
+"texture": ExtResource("2_syeao")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_rwcye")
 }],
 "loop": true,
 "name": &"ship",
@@ -26,8 +30,8 @@ height = 84.0841
 [node name="Player" type="Area2D"]
 light_mask = 13
 visibility_layer = 13
-position = Vector2(640, 620)
-scale = Vector2(0.729932, 0.779761)
+position = Vector2(641, 627)
+scale = Vector2(0.647532, 0.639332)
 script = ExtResource("1_0i8t0")
 metadata/_edit_group_ = true
 
@@ -36,10 +40,10 @@ rotation = 1.56585
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_h4gw3")
 animation = &"ship"
-frame_progress = 0.554734
+frame_progress = 0.895469
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(5, -1)
+position = Vector2(1.36999, -5.12975)
 rotation = -0.00939937
 scale = Vector2(0.816484, 0.968857)
 shape = SubResource("CapsuleShape2D_xvuwb")

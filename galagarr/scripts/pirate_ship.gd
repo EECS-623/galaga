@@ -57,7 +57,7 @@ func _move(delta: float):
 		path_follower.progress += speed * delta
 	#if self.rotation != -PI/2, then rotate towards (some math formula involving delta)
 	
-	if (path_follower.progress_ratio > 0.99 && floating == false):
+	if (path_follower.progress_ratio > 0.975 && floating == false):
 		# create if statement here for the different paths
 		var path
 		
