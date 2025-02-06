@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dw3q5iaaeurun"]
+[gd_scene load_steps=12 format=3 uid="uid://dw3q5iaaeurun"]
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_yqxxi"]
 [ext_resource type="Texture2D" uid="uid://d203ui5eonh8r" path="res://art/final title screen.png" id="2_gvyht"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://no7e5me4ghh4" path="res://art/Textbox with text.png" id="8_jh7cl"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7qwm1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pv6bx"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -73,6 +75,7 @@ icon_alignment = 1
 initial_position = 1
 size = Vector2i(750, 425)
 theme_override_styles/embedded_border = SubResource("StyleBoxEmpty_7qwm1")
+theme_override_styles/embedded_unfocused_border = SubResource("StyleBoxEmpty_pv6bx")
 script = ExtResource("2_n21xy")
 
 [node name="LoreImage" type="TextureRect" parent="Lore"]

@@ -6,7 +6,7 @@ func _ready() -> void:
 	hide() 
 	
 func show_menu():
-	popup_centered()  # Adjust size if needed
+	popup_centered() # Adjust size if needed
 
 func _on_close_requested():
 	hide()
