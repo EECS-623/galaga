@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://bgpy5ovhtdrvx"]
 
 [ext_resource type="Script" path="res://scripts/game_over.gd" id="1_ixswl"]
-[ext_resource type="AudioStream" uid="uid://usftwhcmbve3" path="res://music/Galleygar (Game Over Theme V2).wav" id="2_ed3pr"]
 [ext_resource type="Texture2D" uid="uid://d203ui5eonh8r" path="res://art/final title screen.png" id="2_g6j86"]
 [ext_resource type="Texture2D" uid="uid://b3clo686hnn4f" path="res://art/Game Over Title Black.png" id="3_hoioa"]
 [ext_resource type="Texture2D" uid="uid://csm8kvowbqk4w" path="res://art/Button try again.png" id="4_3nuva"]
 [ext_resource type="Texture2D" uid="uid://nv4ghmhcjcax" path="res://art/Button quit.png" id="5_6jqxy"]
+[ext_resource type="AudioStream" uid="uid://2m3bdqcuaask" path="res://music/GALLEYGAR (Game Over Theme).wav" id="6_e60r4"]
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
@@ -80,7 +80,7 @@ text = "Final Score: 0"
 horizontal_alignment = 2
 
 [node name="GameOverTheme" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("2_ed3pr")
+stream = ExtResource("6_e60r4")
 autoplay = true
 
 [connection signal="pressed" from="VBoxContainer2/PlayAgain" to="." method="_on_play_again_pressed"]

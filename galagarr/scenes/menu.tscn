@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_yqxxi"]
 [ext_resource type="Texture2D" uid="uid://d203ui5eonh8r" path="res://art/final title screen.png" id="2_gvyht"]
-[ext_resource type="AudioStream" uid="uid://bul3paiw2mrjn" path="res://music/Galleygarr (Title Theme).wav" id="2_lnaof"]
 [ext_resource type="Script" path="res://scripts/lore.gd" id="2_n21xy"]
+[ext_resource type="AudioStream" uid="uid://cl237itniubrc" path="res://music/GALLEYGAR (Title Theme).wav" id="3_cxo4s"]
 [ext_resource type="Texture2D" uid="uid://lydglw6krksf" path="res://art/Button start.png" id="4_em7st"]
 [ext_resource type="Texture2D" uid="uid://c7ndr6h3dotdd" path="res://art/Button controls.png" id="5_risxw"]
 [ext_resource type="Texture2D" uid="uid://nv4ghmhcjcax" path="res://art/Button quit.png" id="6_yqt8m"]
@@ -22,13 +22,14 @@ grow_vertical = 2
 script = ExtResource("1_yqxxi")
 
 [node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
 offset_right = 1277.0
 offset_bottom = 720.0
 texture = ExtResource("2_gvyht")
 expand_mode = 1
 
 [node name="TitleTheme" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("2_lnaof")
+stream = ExtResource("3_cxo4s")
 autoplay = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -106,6 +107,7 @@ icon_alignment = 2
 vertical_icon_alignment = 0
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 0
 offset_left = 531.0
 offset_top = 61.0
 offset_right = 1235.0
