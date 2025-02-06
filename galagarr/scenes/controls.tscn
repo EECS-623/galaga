@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/controls.gd" id="1_14ju7"]
 [ext_resource type="Texture2D" uid="uid://d203ui5eonh8r" path="res://art/final title screen.png" id="2_ilw25"]
 [ext_resource type="AudioStream" uid="uid://8jkx8rsdj5cl" path="res://sound_effects/Ambient Waves.mp3" id="3_dd2nu"]
-[ext_resource type="FontFile" uid="uid://dsu3xhfnm3vp4" path="res://font/alagard.ttf" id="3_qtpxs"]
+[ext_resource type="FontFile" uid="uid://bjbmm8js35cc5" path="res://font/Argent Pixel CF Regular.otf" id="3_kwce6"]
 
 [node name="Controls" type="Control"]
 layout_mode = 3
@@ -44,7 +44,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_qtpxs")
+theme_override_fonts/font = ExtResource("3_kwce6")
 theme_override_font_sizes/font_size = 40
 text = "Controls"
 
@@ -68,7 +68,7 @@ size_flags_vertical = 0
 mouse_filter = 2
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/icon_pressed_color = Color(0.17445, 0.453123, 0.427007, 1)
-theme_override_fonts/font = ExtResource("3_qtpxs")
+theme_override_fonts/font = ExtResource("3_kwce6")
 theme_override_font_sizes/font_size = 25
 action_mode = 0
 button_mask = 0
@@ -80,7 +80,7 @@ expand_icon = true
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_qtpxs")
+theme_override_fonts/font = ExtResource("3_kwce6")
 theme_override_font_sizes/font_size = 25
 text = "A / <-"
 
@@ -94,7 +94,7 @@ size_flags_vertical = 6
 mouse_filter = 2
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/icon_pressed_color = Color(0.17445, 0.453123, 0.427007, 1)
-theme_override_fonts/font = ExtResource("3_qtpxs")
+theme_override_fonts/font = ExtResource("3_kwce6")
 theme_override_font_sizes/font_size = 25
 text = "Right"
 
@@ -102,7 +102,7 @@ text = "Right"
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_qtpxs")
+theme_override_fonts/font = ExtResource("3_kwce6")
 theme_override_font_sizes/font_size = 25
 text = "D / ->
 "
@@ -117,7 +117,7 @@ size_flags_vertical = 8
 mouse_filter = 2
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/icon_pressed_color = Color(0.17445, 0.453123, 0.427007, 1)
-theme_override_fonts/font = ExtResource("3_qtpxs")
+theme_override_fonts/font = ExtResource("3_kwce6")
 theme_override_font_sizes/font_size = 25
 text = "Fire Cannon"
 
@@ -125,7 +125,7 @@ text = "Fire Cannon"
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_qtpxs")
+theme_override_fonts/font = ExtResource("3_kwce6")
 theme_override_font_sizes/font_size = 25
 text = "Space"
 
@@ -139,7 +139,7 @@ size_flags_vertical = 8
 mouse_filter = 2
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/icon_pressed_color = Color(0.17445, 0.453123, 0.427007, 1)
-theme_override_fonts/font = ExtResource("3_qtpxs")
+theme_override_fonts/font = ExtResource("3_kwce6")
 theme_override_font_sizes/font_size = 25
 text = "Fire Barrel"
 
@@ -147,7 +147,7 @@ text = "Fire Barrel"
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_qtpxs")
+theme_override_fonts/font = ExtResource("3_kwce6")
 theme_override_font_sizes/font_size = 25
 text = "W / ^"
 
@@ -158,7 +158,7 @@ theme_override_constants/separation = 38
 [node name="Quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
-theme_override_fonts/font = ExtResource("3_qtpxs")
+theme_override_fonts/font = ExtResource("3_kwce6")
 theme_override_font_sizes/font_size = 25
 text = "Return To Menu
 "

@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://dsu3xhfnm3vp4"
-path="res://.godot/imported/alagard.ttf-2b3240367b3e06d07a447eb4b4251ad2.fontdata"
+uid="uid://bjbmm8js35cc5"
+path="res://.godot/imported/Argent Pixel CF Regular.otf-5e79c13289caa87bb9645433f4c5e5b5.fontdata"
 
 [deps]
 
-source_file="res://font/alagard.ttf"
-dest_files=["res://.godot/imported/alagard.ttf-2b3240367b3e06d07a447eb4b4251ad2.fontdata"]
+source_file="res://font/Argent Pixel CF Regular.otf"
+dest_files=["res://.godot/imported/Argent Pixel CF Regular.otf-5e79c13289caa87bb9645433f4c5e5b5.fontdata"]
 
 [params]
 

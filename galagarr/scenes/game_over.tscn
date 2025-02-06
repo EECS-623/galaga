@@ -6,8 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://csm8kvowbqk4w" path="res://art/Button try again.png" id="4_3nuva"]
 [ext_resource type="Texture2D" uid="uid://nv4ghmhcjcax" path="res://art/Button quit.png" id="5_6jqxy"]
 [ext_resource type="Texture2D" uid="uid://cpbff2akj6a6w" path="res://art/button main menu.png" id="5_u2m36"]
-[ext_resource type="FontFile" uid="uid://dsu3xhfnm3vp4" path="res://font/alagard.ttf" id="6_d2ob8"]
 [ext_resource type="AudioStream" uid="uid://2m3bdqcuaask" path="res://music/GALLEYGAR (Game Over Theme).wav" id="6_e60r4"]
+[ext_resource type="FontFile" uid="uid://bjbmm8js35cc5" path="res://font/Argent Pixel CF Regular.otf" id="7_trn0c"]
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
@@ -82,7 +82,7 @@ alignment = 1
 [node name="FinalScoreLabel" type="Label" parent="VBoxContainer3"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("6_d2ob8")
+theme_override_fonts/font = ExtResource("7_trn0c")
 theme_override_font_sizes/font_size = 40
 text = "Final Score: 0"
 
