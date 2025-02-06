@@ -22,7 +22,7 @@ func _ready():
 	screen_size = get_viewport_rect().size
 	connect("area_entered", Callable(self, "_on_area_entered"))
 	add_to_group("player")
-	$AnimatedSprite2D.play()
+	$AnimatedSprite2D.play("ship")
 	# This is all code to prevent the ship from being half off the screen -Will
 	var sprite_node = $AnimatedSprite2D
 	if sprite_node and sprite_node.sprite_frames:
@@ -79,7 +79,9 @@ func _on_area_entered(area: Area2D) -> void:
 			# add player cannot move here with 
 			# maybe a sinking animation 
 			# change line below to be longer in case of sinking animation
-			hide()
+			$AnimatedSprite2D.play("blowing_up")
+			if $AnimatedSprite2D.animation == "blowing_up":
+				$AnimatedSprite2D.scale = Vector2(1, 1)
 			hit.emit()
 		else:
 			$PlayerHitAudio.play()
@@ -101,7 +103,7 @@ func _unhandled_input(event):
 		fireBarrel()		
 
 func fire_cannon():
-	if not cooldown:
+	if not cooldown and lives > 0:
 		var bullet = player_bullet.instantiate()
 		$PlayerShotAudio.play()
 	#POSITION OF BULLET SPAWN
@@ -111,7 +113,7 @@ func fire_cannon():
 		get_parent().add_child(bullet)
 		
 func fireBarrel():
-	if not cooldownAlt:
+	if not cooldownAlt and lives > 0:
 		var explosive = barrel.instantiate()
 		#POSITION OF BULLET SPAWN
 		$DeployBarrelAudio.play()

@@ -51,6 +51,6 @@ scale = Vector2(3.13253, 4.07846)
 
 [node name="SharkHitAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_2lw5l")
-volume_db = 0.5
+volume_db = 4.0
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

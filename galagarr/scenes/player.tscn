@@ -1,7 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://dvshqx1afu2e"]
+[gd_scene load_steps=13 format=3 uid="uid://dvshqx1afu2e"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_0i8t0"]
+[ext_resource type="Texture2D" uid="uid://mju10b1w54og" path="res://art/Explosion 1.png" id="2_2ijjx"]
 [ext_resource type="Texture2D" uid="uid://dyxrg78q1y4sv" path="res://art/Player Ship Animation 1.png" id="2_syeao"]
+[ext_resource type="Texture2D" uid="uid://n2wgi7ii2mc3" path="res://art/Explosion 2.png" id="3_67s42"]
 [ext_resource type="AudioStream" uid="uid://sgxmnjnxcifi" path="res://sound_effects/Player Hit.mp3" id="3_mo8v0"]
 [ext_resource type="Texture2D" uid="uid://bym0nnpngeqpx" path="res://art/Player Ship Animation 2.png" id="3_rwcye"]
 [ext_resource type="AudioStream" uid="uid://gcxk08d8hxcn" path="res://sound_effects/Player Death.mp3" id="4_hfmpo"]
@@ -11,6 +13,17 @@
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_h4gw3"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2ijjx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_67s42")
+}],
+"loop": true,
+"name": &"blowing_up",
+"speed": 0.5
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_syeao")
@@ -33,14 +46,12 @@ visibility_layer = 13
 position = Vector2(641, 627)
 scale = Vector2(0.647532, 0.639332)
 script = ExtResource("1_0i8t0")
-metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 rotation = 1.56585
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_h4gw3")
-animation = &"ship"
-frame_progress = 0.895469
+animation = &"blowing_up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1.36999, -5.12975)

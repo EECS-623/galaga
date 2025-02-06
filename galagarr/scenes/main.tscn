@@ -43,6 +43,7 @@ script = ExtResource("1_7dckw")
 
 [node name="GalleyGarrTheme" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_ucnvl")
+volume_db = -2.0
 autoplay = true
 
 [node name="AmbientWavesAudio" type="AudioStreamPlayer2D" parent="."]
@@ -88,6 +89,7 @@ show_percentage = false
 [node name="WaveAudio" type="AudioStreamPlayer2D" parent="Game"]
 process_mode = 3
 stream = ExtResource("11_s16vs")
+volume_db = 2.0
 
 [node name="Background" type="AnimatedSprite2D" parent="."]
 z_index = -1
