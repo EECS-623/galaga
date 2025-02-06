@@ -2,7 +2,7 @@ extends Area2D
 var screen_size
 @export var projectile: PackedScene
 var speed
-var shot_delay = max(1, randf_range(5, 10) - .50 * (Global.wave))
+var shot_delay = max(1, randf_range(5, 15) - .50 * (Global.wave))
 var to_floating = false
 var floating = false
 var direction
