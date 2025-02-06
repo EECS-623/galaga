@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://c5srvqbgbew67"]
+[gd_scene load_steps=6 format=3 uid="uid://c5srvqbgbew67"]
 
-[ext_resource type="Texture2D" uid="uid://coxwmi3vc5jjn" path="res://art/heart.png" id="1_df6gt"]
 [ext_resource type="Script" path="res://scripts/hud.gd" id="1_yqm5l"]
+[ext_resource type="Texture2D" uid="uid://lddbpkmtw4bw" path="res://art/1 Heart.png" id="2_3bnyy"]
+[ext_resource type="Texture2D" uid="uid://cfujfv7hcxpi4" path="res://art/0 Hearts.png" id="2_7futb"]
+[ext_resource type="Texture2D" uid="uid://biu1mvh440n7h" path="res://art/2 Hearts.png" id="3_s1khe"]
+[ext_resource type="Texture2D" uid="uid://ci57ofgoh68e6" path="res://art/3 Hearts.png" id="4_dffm7"]
 
 [node name="HUD" type="CanvasLayer"]
 
@@ -12,26 +15,47 @@ offset_right = 1282.0
 offset_bottom = 722.0
 script = ExtResource("1_yqm5l")
 
-[node name="LifeCounter" type="HBoxContainer" parent="Control"]
-layout_mode = 0
-offset_left = 24.0
-offset_top = 664.0
-offset_right = 215.0
-offset_bottom = 721.0
+[node name="LifeCounter" type="Control" parent="Control"]
+layout_mode = 1
+offset_left = 32.0
+offset_top = 624.0
+offset_right = 160.0
+offset_bottom = 688.0
+
+[node name="Life0" type="TextureRect" parent="Control/LifeCounter"]
+layout_mode = 1
+offset_left = -8.0
+offset_top = 24.0
+offset_right = 120.0
+offset_bottom = 88.0
+texture = ExtResource("2_7futb")
+expand_mode = 2
 
 [node name="Life1" type="TextureRect" parent="Control/LifeCounter"]
-layout_mode = 2
-texture = ExtResource("1_df6gt")
+layout_mode = 1
+offset_left = -8.0
+offset_top = 24.0
+offset_right = 120.0
+offset_bottom = 88.0
+texture = ExtResource("2_3bnyy")
 expand_mode = 2
 
 [node name="Life2" type="TextureRect" parent="Control/LifeCounter"]
-layout_mode = 2
-texture = ExtResource("1_df6gt")
+layout_mode = 1
+offset_left = -8.0
+offset_top = 24.0
+offset_right = 120.0
+offset_bottom = 88.0
+texture = ExtResource("3_s1khe")
 expand_mode = 2
 
 [node name="Life3" type="TextureRect" parent="Control/LifeCounter"]
-layout_mode = 2
-texture = ExtResource("1_df6gt")
+layout_mode = 1
+offset_left = -8.0
+offset_top = 24.0
+offset_right = 120.0
+offset_bottom = 88.0
+texture = ExtResource("4_dffm7")
 expand_mode = 2
 
 [node name="ScoreLabel" type="Label" parent="Control"]
