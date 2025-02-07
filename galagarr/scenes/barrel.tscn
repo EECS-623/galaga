@@ -11,7 +11,8 @@ script/source = "extends Area2D
 
 var speed = 350
 func _ready() -> void:
-	add_to_group(\"player_bullet\")	
+	add_to_group(\"player_bullet\")
+	add_to_group(\"barrel\")
 	set_monitoring(true)
 	anim.play(\"default\")
 	
@@ -25,8 +26,6 @@ func _on_area_entered(area: Area2D) -> void:
 	print(\"test1\") 
 	if area.is_in_group(\"explosionTrigger\"):
 		call_deferred(\"perform_explosion\")
-		if area.is_in_group(\"shark\"):
-			Global.enemies_left -= 1
 		area.queue_free()
 
 func perform_explosion() -> void:

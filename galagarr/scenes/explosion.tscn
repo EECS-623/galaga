@@ -11,7 +11,8 @@ var expolodeTime = 10
 
 func _ready() -> void:
 	add_to_group(\"player_bullet\")
-	add_to_group(\"explosionTrigger\")	
+	add_to_group(\"explosionTrigger\")
+	add_to_group(\"barrel\")
 	anim.play(\"1\")
 	
 	
