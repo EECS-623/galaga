@@ -85,7 +85,7 @@ func _move(delta: float):
 		#floating = true
 
 func _on_area_entered(area: Area2D) -> void:
-	if area.is_in_group("player_bullet") and Global.above_water == 1:
+	if (area.is_in_group("player_bullet") and Global.above_water == 1) or area.is_in_group("barrel"):
 		var hit_sound = AudioStreamPlayer2D.new()
 		hit_sound.stream = $SharkHitAudio.stream
 		hit_sound.volume_db = $SharkHitAudio.volume_db
