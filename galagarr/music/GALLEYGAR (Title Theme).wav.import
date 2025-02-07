@@ -2,7 +2,7 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://cl237itniubrc"
+uid="uid://pyrnq4l0u3y0"
 path="res://.godot/imported/GALLEYGAR (Title Theme).wav-7ce32410751997da392d8816ab7ac6aa.sample"
 
 [deps]
@@ -18,7 +18,7 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
-edit/loop_mode=2
+edit/loop_mode=0
 edit/loop_begin=0
 edit/loop_end=-1
 compress/mode=0

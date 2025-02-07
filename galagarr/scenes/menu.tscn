@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_yqxxi"]
 [ext_resource type="Texture2D" uid="uid://d203ui5eonh8r" path="res://art/final title screen.png" id="2_gvyht"]
 [ext_resource type="Script" path="res://scripts/lore.gd" id="2_n21xy"]
-[ext_resource type="AudioStream" uid="uid://cl237itniubrc" path="res://music/GALLEYGAR (Title Theme).wav" id="3_cxo4s"]
+[ext_resource type="AudioStream" uid="uid://pyrnq4l0u3y0" path="res://music/GALLEYGAR (Title Theme).wav" id="3_cxo4s"]
 [ext_resource type="Texture2D" uid="uid://lydglw6krksf" path="res://art/Button start.png" id="4_em7st"]
 [ext_resource type="Texture2D" uid="uid://c7ndr6h3dotdd" path="res://art/Button controls.png" id="5_risxw"]
 [ext_resource type="Texture2D" uid="uid://nv4ghmhcjcax" path="res://art/Button quit.png" id="6_yqt8m"]

@@ -6,8 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://csm8kvowbqk4w" path="res://art/Button try again.png" id="4_3nuva"]
 [ext_resource type="Texture2D" uid="uid://nv4ghmhcjcax" path="res://art/Button quit.png" id="5_6jqxy"]
 [ext_resource type="Texture2D" uid="uid://cpbff2akj6a6w" path="res://art/button main menu.png" id="5_u2m36"]
-[ext_resource type="AudioStream" uid="uid://2m3bdqcuaask" path="res://music/GALLEYGAR (Game Over Theme).wav" id="6_e60r4"]
 [ext_resource type="FontFile" uid="uid://bjbmm8js35cc5" path="res://font/Argent Pixel CF Regular.otf" id="7_trn0c"]
+[ext_resource type="AudioStream" uid="uid://dcikqok38nbop" path="res://music/GALLEYGAR (Game Over Theme) - Mixed Lower.wav" id="8_x8vff"]
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
@@ -87,7 +87,7 @@ theme_override_font_sizes/font_size = 40
 text = "Final Score: 0"
 
 [node name="GameOverTheme" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("6_e60r4")
+stream = ExtResource("8_x8vff")
 autoplay = true
 
 [connection signal="pressed" from="VBoxContainer2/PlayAgain" to="." method="_on_play_again_pressed"]

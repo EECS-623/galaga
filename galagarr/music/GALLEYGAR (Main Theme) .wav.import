@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bac4gdhf3gjpy"
+path="res://.godot/imported/GALLEYGAR (Main Theme) .wav-13dbd409e2bddd8b5887bc6b06da6528.sample"
+
+[deps]
+
+source_file="res://music/GALLEYGAR (Main Theme) .wav"
+dest_files=["res://.godot/imported/GALLEYGAR (Main Theme) .wav-13dbd409e2bddd8b5887bc6b06da6528.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
