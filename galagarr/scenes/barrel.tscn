@@ -1,0 +1,86 @@
+[gd_scene load_steps=7 format=3 uid="uid://dk8tspnbr21pi"]
+
+[ext_resource type="Texture2D" uid="uid://cxkyenev3nlsb" path="res://art/Borrel.png" id="1_25ewp"]
+[ext_resource type="Texture2D" uid="uid://5shwafolq2wt" path="res://art/Barrel Underwater.png" id="2_deb6k"]
+[ext_resource type="PackedScene" uid="uid://nj1grwiqho3l" path="res://scenes/explosion.tscn" id="2_h15op"]
+
+[sub_resource type="GDScript" id="GDScript_cd4fe"]
+script/source = "extends Area2D
+@export var explosion: PackedScene
+@onready var anim = $AnimatedSprite2D
+
+var speed = 350
+func _ready() -> void:
+	add_to_group(\"player_bullet\")
+	add_to_group(\"barrel\")
+	set_monitoring(true)
+	anim.play(\"default\")
+	
+func _physics_process(delta):
+	if(position.y > 220):
+		position -= transform.y * speed * delta
+	else:
+		anim.play(\"water\")
+		
+func _on_area_entered(area: Area2D) -> void:
+	print(\"test1\") 
+	if area.is_in_group(\"explosionTrigger\"):
+		call_deferred(\"perform_explosion\")
+		area.queue_free()
+
+func perform_explosion() -> void:
+	print(\"boom\") 
+	
+	var sound = get_node(\"/root/Main/Game/Player/BarrelExplosion\")
+	sound.play()
+	
+	var boom = explosion.instantiate()
+	#POSITION OF BULLET SPAWN
+	boom.position = global_position + Vector2(0,00) #for some reason have to offset by this weird number to get it to shoot from front. Might have to change if get a new image - Will
+	get_parent().add_child(boom)
+
+	hide()
+	queue_free()
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pcj6j"]
+radius = 26.0192
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x01ol"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_25ewp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_deb6k")
+}],
+"loop": true,
+"name": &"water",
+"speed": 5.0
+}]
+
+[node name="Area2D" type="Area2D"]
+light_mask = 13
+visibility_layer = 13
+script = SubResource("GDScript_cd4fe")
+explosion = ExtResource("2_h15op")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 13
+visibility_layer = 13
+position = Vector2(-2, 2)
+shape = SubResource("CircleShape2D_pcj6j")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -1)
+scale = Vector2(0.05, 0.05)
+sprite_frames = SubResource("SpriteFrames_x01ol")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_shape_exited" from="." to="." method="_on_area_shape_exited"]

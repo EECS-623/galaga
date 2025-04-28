@@ -1,0 +1,95 @@
+[gd_scene load_steps=9 format=3 uid="uid://bgpy5ovhtdrvx"]
+
+[ext_resource type="Script" path="res://scripts/game_over.gd" id="1_ixswl"]
+[ext_resource type="Texture2D" uid="uid://b1wk2634lbcn1" path="res://art/Game Over Screen.png" id="2_1dpih"]
+[ext_resource type="Texture2D" uid="uid://b3clo686hnn4f" path="res://art/Game Over Title Black.png" id="3_hoioa"]
+[ext_resource type="Texture2D" uid="uid://csm8kvowbqk4w" path="res://art/Button try again.png" id="4_3nuva"]
+[ext_resource type="Texture2D" uid="uid://nv4ghmhcjcax" path="res://art/Button quit.png" id="5_6jqxy"]
+[ext_resource type="Texture2D" uid="uid://cpbff2akj6a6w" path="res://art/button main menu.png" id="5_u2m36"]
+[ext_resource type="FontFile" uid="uid://bjbmm8js35cc5" path="res://font/Argent Pixel CF Regular.otf" id="7_trn0c"]
+[ext_resource type="AudioStream" uid="uid://dcikqok38nbop" path="res://music/GALLEYGAR (Game Over Theme) - Mixed Lower.wav" id="8_x8vff"]
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1277.0
+offset_bottom = 721.0
+script = ExtResource("1_ixswl")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1277.0
+offset_bottom = 720.0
+texture = ExtResource("2_1dpih")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 48.0
+offset_right = 848.0
+offset_bottom = 304.0
+alignment = 1
+
+[node name="GameOverImage" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_hoioa")
+expand_mode = 5
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 936.0
+offset_top = 64.0
+offset_right = 1174.0
+offset_bottom = 502.0
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="PlayAgain" type="Button" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 30
+icon = ExtResource("4_3nuva")
+flat = true
+icon_alignment = 1
+
+[node name="MainMenu" type="Button" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 30
+icon = ExtResource("5_u2m36")
+flat = true
+
+[node name="Quit" type="Button" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 30
+icon = ExtResource("5_6jqxy")
+flat = true
+icon_alignment = 1
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 264.0
+offset_top = 264.0
+offset_right = 960.0
+offset_bottom = 332.0
+alignment = 1
+
+[node name="FinalScoreLabel" type="Label" parent="VBoxContainer3"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_trn0c")
+theme_override_font_sizes/font_size = 40
+text = "Final Score: 0"
+
+[node name="GameOverTheme" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_x8vff")
+autoplay = true
+
+[connection signal="pressed" from="VBoxContainer2/PlayAgain" to="." method="_on_play_again_pressed"]
+[connection signal="pressed" from="VBoxContainer2/MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="VBoxContainer2/Quit" to="." method="_on_quit_pressed"]

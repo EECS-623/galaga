@@ -1,0 +1,129 @@
+[gd_scene load_steps=12 format=3 uid="uid://dw3q5iaaeurun"]
+
+[ext_resource type="Script" path="res://scripts/menu.gd" id="1_yqxxi"]
+[ext_resource type="Texture2D" uid="uid://d203ui5eonh8r" path="res://art/final title screen.png" id="2_gvyht"]
+[ext_resource type="Script" path="res://scripts/lore.gd" id="2_n21xy"]
+[ext_resource type="AudioStream" uid="uid://pyrnq4l0u3y0" path="res://music/GALLEYGAR (Title Theme).wav" id="3_cxo4s"]
+[ext_resource type="Texture2D" uid="uid://lydglw6krksf" path="res://art/Button start.png" id="4_em7st"]
+[ext_resource type="Texture2D" uid="uid://c7ndr6h3dotdd" path="res://art/Button controls.png" id="5_risxw"]
+[ext_resource type="Texture2D" uid="uid://nv4ghmhcjcax" path="res://art/Button quit.png" id="6_yqt8m"]
+[ext_resource type="Texture2D" uid="uid://djnljwg3n5nxl" path="res://art/Title.png" id="8_adpr5"]
+[ext_resource type="Texture2D" uid="uid://no7e5me4ghh4" path="res://art/Textbox with text.png" id="8_jh7cl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7qwm1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pv6bx"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yqxxi")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1277.0
+offset_bottom = 720.0
+texture = ExtResource("2_gvyht")
+expand_mode = 1
+
+[node name="TitleTheme" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_cxo4s")
+autoplay = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 343.0
+offset_top = -120.0
+offset_right = 581.0
+offset_bottom = 302.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Lore" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+icon = ExtResource("4_em7st")
+flat = true
+
+[node name="Controls" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+icon = ExtResource("5_risxw")
+flat = true
+icon_alignment = 1
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+icon = ExtResource("6_yqt8m")
+flat = true
+icon_alignment = 1
+
+[node name="Lore" type="Window" parent="."]
+initial_position = 1
+size = Vector2i(750, 425)
+theme_override_styles/embedded_border = SubResource("StyleBoxEmpty_7qwm1")
+theme_override_styles/embedded_unfocused_border = SubResource("StyleBoxEmpty_pv6bx")
+script = ExtResource("2_n21xy")
+
+[node name="LoreImage" type="TextureRect" parent="Lore"]
+anchors_preset = -1
+anchor_left = 0.441
+anchor_top = 0.448
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -400.375
+offset_top = -110.0
+offset_right = 400.375
+offset_bottom = 110.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.74, 0.74)
+texture = ExtResource("8_jh7cl")
+
+[node name="Button" type="Button" parent="Lore"]
+anchors_preset = -1
+anchor_left = 0.792
+anchor_top = 0.977
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -238.0
+offset_top = -138.0
+scale = Vector2(0.9, 0.9)
+size_flags_horizontal = 8
+size_flags_vertical = 8
+icon = ExtResource("4_em7st")
+flat = true
+icon_alignment = 2
+vertical_icon_alignment = 0
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 531.0
+offset_top = 61.0
+offset_right = 1235.0
+offset_bottom = 262.0
+alignment = 1
+
+[node name="TitleImage" type="TextureRect" parent="VBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("8_adpr5")
+expand_mode = 5
+
+[connection signal="pressed" from="VBoxContainer/Lore" to="." method="_on_lore_pressed"]
+[connection signal="pressed" from="VBoxContainer/Controls" to="." method="_on_controls_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="close_requested" from="Lore" to="Lore" method="_on_close_requested"]
+[connection signal="pressed" from="Lore/Button" to="Lore" method="_on_start_pressed"]

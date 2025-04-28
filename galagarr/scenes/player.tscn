@@ -1,0 +1,78 @@
+[gd_scene load_steps=13 format=3 uid="uid://dvshqx1afu2e"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_0i8t0"]
+[ext_resource type="Texture2D" uid="uid://mju10b1w54og" path="res://art/Explosion 1.png" id="2_2ijjx"]
+[ext_resource type="Texture2D" uid="uid://dyxrg78q1y4sv" path="res://art/Player Ship Animation 1.png" id="2_syeao"]
+[ext_resource type="Texture2D" uid="uid://n2wgi7ii2mc3" path="res://art/Explosion 2.png" id="3_67s42"]
+[ext_resource type="AudioStream" uid="uid://sgxmnjnxcifi" path="res://sound_effects/Player Hit.mp3" id="3_mo8v0"]
+[ext_resource type="Texture2D" uid="uid://bym0nnpngeqpx" path="res://art/Player Ship Animation 2.png" id="3_rwcye"]
+[ext_resource type="AudioStream" uid="uid://gcxk08d8hxcn" path="res://sound_effects/Player Death.mp3" id="4_hfmpo"]
+[ext_resource type="AudioStream" uid="uid://b0c5mnkagdb4o" path="res://sound_effects/Explosive Barrel Deploy.mp3" id="5_ihd02"]
+[ext_resource type="AudioStream" uid="uid://cdctmma27e4lr" path="res://sound_effects/Cannon Fire.mp3" id="6_6ctbj"]
+[ext_resource type="AudioStream" uid="uid://bpy4sf0d888mx" path="res://sound_effects/Barrel Explosion.mp3" id="7_dl1hq"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h4gw3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2ijjx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_67s42")
+}],
+"loop": true,
+"name": &"blowing_up",
+"speed": 0.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_syeao")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_rwcye")
+}],
+"loop": true,
+"name": &"ship",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xvuwb"]
+radius = 39.1814
+height = 84.0841
+
+[node name="Player" type="Area2D"]
+light_mask = 13
+visibility_layer = 13
+position = Vector2(641, 627)
+scale = Vector2(0.647532, 0.639332)
+script = ExtResource("1_0i8t0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+rotation = 1.56585
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_h4gw3")
+animation = &"blowing_up"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.36999, -5.12975)
+rotation = -0.00939937
+scale = Vector2(0.816484, 0.968857)
+shape = SubResource("CapsuleShape2D_xvuwb")
+
+[node name="PlayerHitAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_mo8v0")
+
+[node name="PlayerDeathAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_hfmpo")
+
+[node name="DeployBarrelAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_ihd02")
+
+[node name="PlayerShotAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_6ctbj")
+volume_db = -13.0
+
+[node name="BarrelExplosion" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_dl1hq")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
